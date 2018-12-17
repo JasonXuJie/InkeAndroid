@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:ignore="MissingPrefix">
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vp_guide"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+
+    <Button
+        android:id="@+id/btn_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|bottom"
+        android:layout_marginBottom="30dp"
+        android:gravity="center"
+        android:text="@string/login"
+        android:textColor="@color/C_0099fd"
+        android:textSize="16sp"
+        android:visibility="gone"
+        app:bl_corners_radius="6dp"
+        app:bl_shape="rectangle"
+        app:bl_solid_color="@color/transparent"
+        app:bl_stroke_color="@color/C_0099fd"
+        app:bl_stroke_width="1dp" />
+
+</FrameLayout>

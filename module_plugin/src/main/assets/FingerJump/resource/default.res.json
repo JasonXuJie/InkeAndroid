@@ -1,0 +1,40 @@
+{
+	"groups": [
+		{
+			"keys": "description_json,leaf_left_png,leaf_right_png,spritestairs_png,robotJump_json,robotJump_png",
+			"name": "preload"
+		}
+	],
+	"resources": [
+		{
+			"name": "description_json",
+			"type": "json",
+			"url": "config/description.json"
+		},
+		{
+			"name": "leaf_left_png",
+			"type": "image",
+			"url": "assets/leaf_left.png"
+		},
+		{
+			"name": "leaf_right_png",
+			"type": "image",
+			"url": "assets/leaf_right.png"
+		},
+		{
+			"name": "spritestairs_png",
+			"type": "image",
+			"url": "assets/spritestairs.png"
+		},
+		{
+			"name": "robotJump_json",
+			"type": "json",
+			"url": "assets/robotJump.json"
+		},
+		{
+			"name": "robotJump_png",
+			"type": "image",
+			"url": "assets/robotJump.png"
+		}
+	]
+}

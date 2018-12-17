@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <com.jason.module_main.mvp.ui.widgets.NoScrollViewPager
+        android:id="@+id/vp_main"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+    <RadioGroup
+        android:id="@+id/bottom_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+        <RadioButton
+            android:id="@+id/tab_movie"
+            style="@style/tab_item"
+            android:checked="true"
+            android:drawableTop="@drawable/select_movie"
+            android:text="@string/tab_movie"
+            android:textColor="@color/tab_text"
+            android:textSize="13sp" />
+
+        <RadioButton
+            android:id="@+id/tab_event"
+            style="@style/tab_item"
+            android:drawableTop="@drawable/select_event"
+            android:text="@string/tab_event"
+            android:textColor="@color/tab_text"
+            android:textSize="13sp" />
+
+        <RadioButton
+            android:id="@+id/tab_news"
+            style="@style/tab_item"
+            android:drawableTop="@drawable/select_news"
+            android:text="@string/tab_news"
+            android:textColor="@color/tab_text"
+            android:textSize="13sp" />
+
+        <RadioButton
+            android:id="@+id/tab_my"
+            style="@style/tab_item"
+            android:drawableTop="@drawable/select_my"
+            android:text="@string/tab_my"
+            android:textColor="@color/tab_text"
+            android:textSize="13sp" />
+
+
+    </RadioGroup>
+</LinearLayout>

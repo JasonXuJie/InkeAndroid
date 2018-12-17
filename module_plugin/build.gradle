@@ -1,0 +1,59 @@
+//apply plugin: 'com.android.library'
+apply plugin: 'com.android.application'
+apply plugin: 'com.didi.virtualapk.plugin'
+android {
+    signingConfigs {
+        release {
+            keyAlias 'Jason'
+            keyPassword 'android'
+            storeFile file('/Users/jason/AndroidProjects/MyApp/release.keystore')
+            storePassword 'android'
+        }
+    }
+    compileSdkVersion rootProject.ext.androidCompileSdkVersion
+    defaultConfig {
+        minSdkVersion rootProject.ext.androidMinSdkVersion
+        targetSdkVersion rootProject.ext.androidTargetSdkVersion
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [AROUTER_MODULE_NAME: project.getName()]
+            }
+        }
+
+    }
+    buildTypes {
+//        debug{
+//            minifyEnabled false
+//            shrinkResources false
+//        }
+        release {
+            minifyEnabled false
+            shrinkResources false
+            signingConfig signingConfigs.release
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    compile project(':mytools')
+    def depends = rootProject.ext.tools
+    api depends.aRouter
+    annotationProcessor depends.aRouterAnnotation
+
+}
+
+virtualApk {
+    packageId = 0x6f             // 插件资源id，避免资源id冲突
+    targetHost='../MyApp/app'      // 宿主工程的路径
+    applyHostMapping = true      // 插件编译时是否启用应用宿主的apply mapping
+}

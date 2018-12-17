@@ -1,0 +1,1 @@
+include ':app', ':mytools', ':module_movie', ':module_event', ':module_news', ':module_my', ':module_main', ':module_plugin'
