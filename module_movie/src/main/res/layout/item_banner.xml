@@ -1,13 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.youth.banner.Banner android:id="@+id/bannerView"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="150dp"
-    app:image_scale_type="fit_xy"
-    app:indicator_width="8dp"
-    app:indicator_height="8dp"
-    app:indicator_margin="5dp"
-    app:indicator_drawable_selected="@color/colorPrimary"
-    app:indicator_drawable_unselected="@color/white"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto" />
+    android:layout_height="wrap_content">
+
+
+    <com.youth.banner.Banner xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/bannerView"
+        android:layout_width="match_parent"
+        android:layout_height="230dp"
+        app:image_scale_type="fit_xy"
+        app:indicator_drawable_selected="@color/C_0099fd"
+        app:indicator_drawable_unselected="@color/white"
+        app:indicator_height="8dp"
+        app:indicator_margin="5dp"
+        app:indicator_width="8dp" />
+
+    <TextView
+        android:id="@+id/tv_city_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="50dp"
+        android:text="上海"
+        android:textColor="@color/white"
+        android:textSize="15sp" />
+
+
+    <ImageView
+        android:id="@+id/img_search"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="15dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/search" />
+
+    <ImageView
+        android:id="@+id/img_scan"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_alignBottom="@id/img_search"
+        android:layout_marginEnd="15dp"
+        android:layout_toStartOf="@id/img_search"
+        android:src="@drawable/scan" />
+
+</RelativeLayout>
+
 

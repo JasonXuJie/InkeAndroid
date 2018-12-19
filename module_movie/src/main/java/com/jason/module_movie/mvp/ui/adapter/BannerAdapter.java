@@ -7,6 +7,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.alibaba.android.vlayout.DelegateAdapter;
 import com.alibaba.android.vlayout.LayoutHelper;
@@ -32,6 +34,8 @@ public class BannerAdapter extends DelegateAdapter.Adapter<BannerAdapter.BannerV
     private LayoutHelper mHelper;
     private List<String> urls = new ArrayList<>();
     public OnBannerListener listener;
+    private View.OnClickListener cityListener;
+    private View.OnClickListener searchListener;
 
     public BannerAdapter(Context context, LayoutHelper layoutHelper, List<MovieBean.Movie> banner){
         this.mContext = context;
@@ -43,6 +47,12 @@ public class BannerAdapter extends DelegateAdapter.Adapter<BannerAdapter.BannerV
 
     public void setOnBannerListener(OnBannerListener listener){
         this.listener = listener;
+    }
+    public void setOnCityClickListener(View.OnClickListener listener){
+        this.cityListener = listener;
+    }
+    public void setOnSearchListener(View.OnClickListener listener){
+        this.searchListener = listener;
     }
 
     @Override
@@ -61,6 +71,8 @@ public class BannerAdapter extends DelegateAdapter.Adapter<BannerAdapter.BannerV
         holder.bannerView.setImages(urls);
         holder.bannerView.start();
         if (listener!=null)holder.bannerView.setOnBannerListener(listener);
+        if (cityListener!=null)holder.tv_city_name.setOnClickListener(cityListener);
+        if (searchListener!=null)holder.img_search.setOnClickListener(searchListener);
 
     }
 
@@ -72,9 +84,15 @@ public class BannerAdapter extends DelegateAdapter.Adapter<BannerAdapter.BannerV
     static class BannerViewHolder extends RecyclerView.ViewHolder{
 
         private Banner bannerView;
+        private TextView tv_city_name;
+        private ImageView img_search;
+        private ImageView img_scan;
         public BannerViewHolder(View itemView) {
             super(itemView);
             bannerView = itemView.findViewById(R.id.bannerView);
+            tv_city_name = itemView.findViewById(R.id.tv_city_name);
+            img_search = itemView.findViewById(R.id.img_search);
+            img_scan = itemView.findViewById(R.id.img_scan);
             initBannerView();
         }
 

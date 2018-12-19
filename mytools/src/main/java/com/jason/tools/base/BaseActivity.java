@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.gyf.barlibrary.ImmersionBar;
 import com.jason.tools.R;
 import com.jason.tools.utils.ActivityStackUtil;
 import com.jason.tools.widgets.LoadingDialog;
@@ -24,12 +25,14 @@ public abstract class BaseActivity<T extends BasePresenter> extends AppCompatAct
 
     protected T presenter;
     private LoadingDialog dialog;
+    private TextView tv_title;
 
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         BackgroundLibrary.inject(this);
         super.onCreate(savedInstanceState);
+        ImmersionBar.with(this).statusBarColor(R.color.C_0099fd).barAlpha(0.3f).fitsSystemWindows(true).init();
         initPresenter();
         setContentView(getLayoutId());
         initViews();
@@ -98,7 +101,7 @@ public abstract class BaseActivity<T extends BasePresenter> extends AppCompatAct
 
     public void setToolBarByBack(Toolbar toolbar, String title, View.OnClickListener listener){
         ImageView img_back = toolbar.findViewById(R.id.img_back);
-        TextView tv_title = toolbar.findViewById(R.id.tv_title);
+        tv_title = toolbar.findViewById(R.id.tv_title);
         tv_title.setText(title);
         if (listener!=null){
             img_back.setOnClickListener(listener);
@@ -112,11 +115,16 @@ public abstract class BaseActivity<T extends BasePresenter> extends AppCompatAct
         }
     }
 
+    public void setToolBarTitle(String title){
+        if (tv_title!=null)tv_title.setText(title);
+    }
+
 
     @Override
     protected void onDestroy() {
         if (presenter!=null)presenter.detachView();
         ActivityStackUtil.getInstance().removeActivity(this);
+        ImmersionBar.with(this).destroy();
         super.onDestroy();
 
     }

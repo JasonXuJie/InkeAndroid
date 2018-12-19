@@ -21,7 +21,6 @@
         <RadioButton
             android:id="@+id/tab_movie"
             style="@style/tab_item"
-            android:checked="true"
             android:drawableTop="@drawable/select_movie"
             android:text="@string/tab_movie"
             android:textColor="@color/tab_text"

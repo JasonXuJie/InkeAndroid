@@ -1,21 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <android.support.v7.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/C_0099fd">
+        android:background="@color/white"
+        android:elevation="3dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="@string/module_name"
-            android:textColor="@color/white"
+            android:text="@string/event_title"
+            android:textColor="@color/C_FF9900"
             android:textSize="15sp" />
     </android.support.v7.widget.Toolbar>
 
@@ -23,15 +24,65 @@
         android:id="@+id/tabLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:tabSelectedTextColor="@color/C_alpha70_white"
-        app:tabTextColor="@color/white"
-        app:tabIndicatorColor="@color/white"
+        android:background="@color/white"
+        app:tabIndicatorColor="@color/C_FF9900"
         app:tabMode="scrollable"
-        android:background="@color/C_0099fd"/>
+        app:tabSelectedTextColor="@color/C_FF9900"
+        app:tabTextColor="@color/black" />
+
+    <RadioGroup
+        android:id="@+id/rg_tags"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:divider="@drawable/shape_trans_10"
+        android:orientation="horizontal"
+        android:paddingBottom="5dp"
+        android:paddingTop="20dp"
+        android:showDividers="beginning|middle|end">
+
+
+        <RadioButton
+            android:id="@+id/rb_future"
+            style="@style/tag_style"
+            android:text="@string/future"
+            android:textColor="@color/tag_text"
+            android:textSize="15sp" />
+
+        <RadioButton
+            android:id="@+id/rb_week"
+            style="@style/tag_style"
+            android:text="@string/week"
+            android:textColor="@color/tag_text"
+            android:textSize="15sp" />
+
+        <RadioButton
+            android:id="@+id/rb_weekend"
+            style="@style/tag_style"
+            android:text="@string/weekend"
+            android:textColor="@color/tag_text"
+            android:textSize="15sp" />
+
+
+        <RadioButton
+            android:id="@+id/rb_today"
+            style="@style/tag_style"
+            android:text="@string/today"
+            android:textColor="@color/tag_text"
+            android:textSize="15sp" />
+
+        <RadioButton
+            android:id="@+id/rb_tomorrow"
+            style="@style/tag_style"
+            android:text="@string/tomorrow"
+            android:textColor="@color/tag_text"
+            android:textSize="15sp" />
+
+
+    </RadioGroup>
 
     <android.support.v4.view.ViewPager
         android:id="@+id/viewPager"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent" />
 
 </LinearLayout>

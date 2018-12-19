@@ -4,7 +4,9 @@ package com.jason.module_movie.mvp.ui.fragment;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.alibaba.android.vlayout.DelegateAdapter;
 import com.alibaba.android.vlayout.VirtualLayoutManager;
 import com.alibaba.android.vlayout.layout.FloatLayoutHelper;
@@ -38,7 +40,7 @@ import java.util.List;
  * Created by jason on 2018/11/14.
  */
 @Route(path = RouterConfig.FRAGMENT_MOVIE_PATH)
-public class MoviesFragment extends BaseFragment<IndexPresenter> implements IndexContract.IndexViewImpl{
+public class MoviesFragment extends BaseFragment<IndexPresenter> implements IndexContract.IndexViewImpl {
 
     private RecyclerView rv_movies;
     private DelegateAdapter adapters;
@@ -61,13 +63,12 @@ public class MoviesFragment extends BaseFragment<IndexPresenter> implements Inde
         rv_movies.setLayoutManager(layoutManager);
         RecyclerView.RecycledViewPool viewPool = new RecyclerView.RecycledViewPool();
         rv_movies.setRecycledViewPool(viewPool);
-        viewPool.setMaxRecycledViews(0,10);
-        adapters  = new DelegateAdapter(layoutManager,false);
+        viewPool.setMaxRecycledViews(0, 10);
+        adapters = new DelegateAdapter(layoutManager, false);
         rv_movies.setAdapter(adapters);
         //adapters.addAdapter(new MyAdapter(activity,new LinearLayoutHelper(15),data));
         //adapters.addAdapter(new GridAdapter(activity,new GridLayoutHelper(3,data.size(),10,15),data));
     }
-
 
 
     @Override
@@ -79,51 +80,65 @@ public class MoviesFragment extends BaseFragment<IndexPresenter> implements Inde
 
     @Override
     public void getBanner(final List<MovieBean.Movie> banner) {
-        BannerAdapter adapter = new BannerAdapter(activity,new SingleLayoutHelper(),banner);
+        BannerAdapter adapter = new BannerAdapter(activity, new SingleLayoutHelper(), banner);
         adapters.addAdapter(adapter);
         adapter.setOnBannerListener(new OnBannerListener() {
             @Override
             public void OnBannerClick(int position) {
                 Bundle bundle = new Bundle();
-                bundle.putString("id",banner.get(position).getId());
-                openActivityByParams(MovieDetailsActivity.class,bundle);
+                bundle.putString("id", banner.get(position).getId());
+                openActivityByParams(MovieDetailsActivity.class, bundle);
             }
         });
-        adapters.addAdapter(new ActionAdapter(activity,new SingleLayoutHelper()));
+        adapter.setOnCityClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ARouter.getInstance().build(RouterConfig.CITY_PATH).navigation();
+            }
+        });
+        adapter.setOnSearchListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+        adapters.addAdapter(new ActionAdapter(activity, new SingleLayoutHelper()));
     }
 
     @Override
     public void getHotMovies(List<MovieBean.Movie> movies) {
-        HotMovieContainerAdapter adapter = new HotMovieContainerAdapter(activity,new SingleLayoutHelper(),movies);
+        HotMovieContainerAdapter adapter = new HotMovieContainerAdapter(activity, new SingleLayoutHelper(), movies);
         adapters.addAdapter(adapter);
         adapter.setOnItemClickListener(new OnItemClickListener<MovieBean.Movie>() {
             @Override
             public void onClick(View v, int position, MovieBean.Movie data) {
-               Bundle bundle = new Bundle();
-               bundle.putString("id",data.getId());
-               openActivityByParams(MovieDetailsActivity.class,bundle);
+                Bundle bundle = new Bundle();
+                bundle.putString("id", data.getId());
+                openActivityByParams(MovieDetailsActivity.class, bundle);
             }
         });
         SingleLayoutHelper layoutHelper = new SingleLayoutHelper();
-        layoutHelper.setMargin(20,15,20,15);
-        adapters.addAdapter(new FunctionAdapter(activity,layoutHelper));
+        layoutHelper.setMargin(20, 15, 20, 15);
+        adapters.addAdapter(new FunctionAdapter(activity, layoutHelper));
         presenter.requestMoreMovies("上海");
     }
 
     @Override
     public void getMoreMovies(List<MovieBean.Movie> movies) {
-        StaggeredGridLayoutHelper layoutHelper = new StaggeredGridLayoutHelper(2,20);
-        layoutHelper.setMargin(20,15,20,0);
-        MoreMoviesAdapter adapter = new MoreMoviesAdapter(activity,layoutHelper,movies);
+        StaggeredGridLayoutHelper layoutHelper = new StaggeredGridLayoutHelper(2, 20);
+        layoutHelper.setMargin(20, 15, 20, 0);
+        MoreMoviesAdapter adapter = new MoreMoviesAdapter(activity, layoutHelper, movies);
         adapters.addAdapter(adapter);
         adapter.setOnItemClickListener(new OnItemClickListener<MovieBean.Movie>() {
             @Override
             public void onClick(View v, int position, MovieBean.Movie data) {
-               Bundle bundle = new Bundle();
-               bundle.putString("id",data.getId());
-               openActivityByParams(MovieDetailsActivity.class,bundle);
+                Bundle bundle = new Bundle();
+                bundle.putString("id", data.getId());
+                openActivityByParams(MovieDetailsActivity.class, bundle);
             }
         });
         //adapters.addAdapter(new FloatAdapter(activity,new FloatLayoutHelper()));
     }
+
+
 }

@@ -52,7 +52,7 @@ public class MyFragment extends BaseFragment implements View.OnClickListener {
             LinearLayout item_layout = view.findViewById(R.id.item_layout);
             ImageView img_menu_icon = view.findViewById(R.id.img_menu_icon);
             TextView item_tv_title = view.findViewById(R.id.item_tv_title);
-            Space item_space = view.findViewById(R.id.item_space);
+            View item_space = view.findViewById(R.id.item_space);
             item_tv_title.setText(titles[i]);
             if (PlatformUtil.isLollipop()) {
                 item_layout.setBackgroundResource(R.drawable.ripple_item_my);
@@ -62,16 +62,22 @@ public class MyFragment extends BaseFragment implements View.OnClickListener {
             }
             switch (index) {
                 case 0:
+                    img_menu_icon.setImageResource(R.drawable.my_icon_history);
                     break;
                 case 1:
+                    img_menu_icon.setImageResource(R.drawable.my_icon_tool);
                     break;
                 case 2:
+                    img_menu_icon.setImageResource(R.drawable.my_icon_share);
                     break;
                 case 3:
+                    img_menu_icon.setImageResource(R.drawable.my_icon_other);
                     break;
                 case 4:
+                    img_menu_icon.setImageResource(R.drawable.my_icon_setting);
                     break;
                 case 5:
+                    img_menu_icon.setImageResource(R.drawable.my_icon_about_us);
                     break;
             }
             item_layout.setOnClickListener(new View.OnClickListener() {

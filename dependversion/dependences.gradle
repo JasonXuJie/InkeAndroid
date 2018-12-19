@@ -19,6 +19,8 @@ ext{
     lottieVersion = "2.7.0"
     viewModelandLiveDataVersion = "1.1.1"
     vlayoutVersion = "1.2.8"
+    immersionBarVersion = "2.3.3-beta09"
+
 
     androidWidgets = [
        appcompat:"com.android.support:appcompat-v7:${androidWidgetsVersion}",
@@ -38,7 +40,8 @@ ext{
        // ViewModel和LiveData依赖
        viewModelandLiveData:"android.arch.lifecycle:extensions:${viewModelandLiveDataVersion}",
        viewModelandLiveDataAnnotation:"android.arch.lifecycle:compiler:${viewModelandLiveDataVersion}",
-       vlayout:"com.alibaba.android:vlayout:${vlayoutVersion}@aar"
+       vlayout:"com.alibaba.android:vlayout:${vlayoutVersion}@aar",
+       immersionbar:"com.gyf.immersionbar:immersionbar:${immersionBarVersion}"
 
     ]
 }

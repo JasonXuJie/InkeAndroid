@@ -5,6 +5,10 @@ import android.arch.lifecycle.ViewModelProviders;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
+import android.view.View;
+
+import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.jason.module_my.R;
 import com.jason.module_my.mvp.ui.adapter.HistoryAdapter;
 import com.jason.module_my.viewmodel.HistoryListViewModel;
@@ -19,7 +23,7 @@ import java.util.List;
 
 public class TodayInHistoryActivity extends BaseActivity {
 
-
+    private Toolbar toolBar;
     private HistoryListViewModel viewModel;
     private RecyclerView rv_history;
     @Override
@@ -34,10 +38,11 @@ public class TodayInHistoryActivity extends BaseActivity {
 
     @Override
     public void initViews() {
+        toolBar = findViewById(R.id.toolBar);
         rv_history = findViewById(R.id.rv_history);
         rv_history.setLayoutManager(new LinearLayoutManager(this));
         rv_history.setHasFixedSize(true);
-
+        setToolBarByBack(toolBar,"历史上的今天",null);
     }
 
     @Override
@@ -49,8 +54,15 @@ public class TodayInHistoryActivity extends BaseActivity {
                 if (data==null){
                     showLoading();
                 }else {
-                    rv_history.setAdapter(new HistoryAdapter(data));
                     hideLoading();
+                    HistoryAdapter adapter = new HistoryAdapter(data);
+                    rv_history.setAdapter(adapter);
+                    adapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
+                        @Override
+                        public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+
+                        }
+                    });
                 }
             }
         });

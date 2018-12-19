@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.didi.virtualapk.PluginManager;
+import com.gyf.barlibrary.ImmersionBar;
 import com.jason.module_main.R;
 import com.jason.module_main.mvp.ui.adapter.GuideAdapter;
 import com.jason.tools.base.BaseActivity;
@@ -45,6 +46,7 @@ public class GuideActivity extends BaseActivity implements View.OnClickListener{
 
     @Override
     public void initViews() {
+        ImmersionBar.with(this).reset().init();
         vp_guide = findViewById(R.id.vp_guide);
         btn_login = findViewById(R.id.btn_login);
         btn_login.setOnClickListener(this);
@@ -78,6 +80,7 @@ public class GuideActivity extends BaseActivity implements View.OnClickListener{
         if (Environment.getExternalStorageDirectory()!=null){
             final File apk = new File(Environment.getExternalStorageDirectory(),"plugin.apk");
             if (apk.exists()){
+                Logger.e("存在");
                 PermissionUtil.requestEachPermission(this, new PermissionUtil.OnPermissionListener() {
                     @Override
                     public void granted() {
@@ -86,8 +89,8 @@ public class GuideActivity extends BaseActivity implements View.OnClickListener{
                             Logger.e("读取");
                         }catch (Exception e){
                             e.printStackTrace();
+                            Logger.e("catch");
                         }
-                        Logger.e("存在");
                     }
 
                     @Override
@@ -139,6 +142,7 @@ public class GuideActivity extends BaseActivity implements View.OnClickListener{
                 startActivity(intent);
             }
             //openActivityByNoParams(PluginActivity.class);
+
         }
     }
 }

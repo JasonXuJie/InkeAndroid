@@ -16,7 +16,7 @@ import com.jason.module_event.mvp.ui.fragment.EventFragment;
 public class EventsPagerAdapter extends FragmentPagerAdapter {
 
     private String[] titles={"所有","音乐","电影","戏剧","公益","讲座","展览","聚会","旅行","其他"};
-    private String[] tags={"top","shehui","guonei","guoji","yule","tiyu","junshi","keji","caijing","shishang"};
+    private String[] types={"all","music","film","drama","commonweal","salon","exhibition","party","travel","others"};
 
 
     public EventsPagerAdapter(FragmentManager fm) {
@@ -25,7 +25,7 @@ public class EventsPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        return EventFragment.newInstance(tags[position]);
+        return EventFragment.newInstance(types[position]);
     }
 
     @Override

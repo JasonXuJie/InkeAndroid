@@ -52,6 +52,7 @@ dependencies {
     api (depends.vlayout){
         transitive = true
     }
+    api depends.immersionbar
 
 
 

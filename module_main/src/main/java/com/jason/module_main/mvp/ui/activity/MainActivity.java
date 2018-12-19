@@ -3,6 +3,7 @@ package com.jason.module_main.mvp.ui.activity;
 import android.widget.RadioGroup;
 
 import com.alibaba.android.arouter.launcher.ARouter;
+import com.gyf.barlibrary.ImmersionBar;
 import com.jason.module_main.R;
 import com.jason.module_main.mvp.ui.adapter.FragmentAdapter;
 import com.jason.module_main.mvp.ui.widgets.NoScrollViewPager;
@@ -11,6 +12,7 @@ import com.jason.tools.base.BaseActivity;
 import com.jason.tools.base.BaseFragment;
 import com.jason.tools.base.BasePresenter;
 import com.jason.tools.config.RouterConfig;
+import com.orhanobut.logger.Logger;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -48,10 +50,11 @@ public class MainActivity extends BaseActivity {
         list.add(eventFragment);
         list.add(newsFragment);
         list.add(myFragment);
-        vp_main.setAdapter(new FragmentAdapter(getSupportFragmentManager(),list));
+        vp_main.setAdapter(new FragmentAdapter(getSupportFragmentManager(), list));
         bottom_bar.setOnCheckedChangeListener(listener);
         vp_main.setOffscreenPageLimit(list.size());
         //KeepAliveService.start(this);
+        bottom_bar.check(R.id.tab_movie);
     }
 
     @Override
@@ -60,18 +63,21 @@ public class MainActivity extends BaseActivity {
     }
 
 
-
     private RadioGroup.OnCheckedChangeListener listener = new RadioGroup.OnCheckedChangeListener() {
         @Override
         public void onCheckedChanged(RadioGroup group, int checkedId) {
-            if (checkedId==R.id.tab_movie){
-                vp_main.setCurrentItem(0,false);
-            }else if (checkedId==R.id.tab_event){
-                vp_main.setCurrentItem(1,false);
-            }else if (checkedId==R.id.tab_news){
-                vp_main.setCurrentItem(2,false);
-            }else if (checkedId==R.id.tab_my){
-                vp_main.setCurrentItem(3,false);
+            if (checkedId == R.id.tab_movie) {
+                ImmersionBar.with(MainActivity.this).reset().fitsSystemWindows(false).init();
+                vp_main.setCurrentItem(0, false);
+            } else if (checkedId == R.id.tab_event) {
+                ImmersionBar.with(MainActivity.this).statusBarColor(R.color.white).barAlpha(0.3f).fitsSystemWindows(true).init();
+                vp_main.setCurrentItem(1, false);
+            } else if (checkedId == R.id.tab_news) {
+                ImmersionBar.with(MainActivity.this).statusBarColor(R.color.C_0099fd).barAlpha(0.3f).fitsSystemWindows(true).init();
+                vp_main.setCurrentItem(2, false);
+            } else if (checkedId == R.id.tab_my) {
+                ImmersionBar.with(MainActivity.this).statusBarColor(R.color.C_0099fd).barAlpha(0.3f).fitsSystemWindows(true).init();
+                vp_main.setCurrentItem(3, false);
             }
         }
     };

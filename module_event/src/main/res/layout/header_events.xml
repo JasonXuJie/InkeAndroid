@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:divider="@drawable/shape_trans_10"
+    android:orientation="horizontal"
+    android:paddingBottom="10dp"
+    android:paddingTop="20dp"
+    android:showDividers="beginning|middle|end">
+
+
+    <RadioButton
+        android:id="@+id/rb_future"
+        style="@style/tag_style"
+        android:text="@string/future"
+        android:textColor="@color/tag_text"
+        android:textSize="15sp" />
+
+    <RadioButton
+        android:id="@+id/rb_week"
+        style="@style/tag_style"
+        android:text="@string/week"
+        android:textColor="@color/tag_text"
+        android:textSize="15sp" />
+
+    <RadioButton
+        android:id="@+id/rb_weekend"
+        style="@style/tag_style"
+        android:text="@string/weekend"
+        android:textColor="@color/tag_text"
+        android:textSize="15sp" />
+
+
+    <RadioButton
+        android:id="@+id/rb_today"
+        style="@style/tag_style"
+        android:text="@string/today"
+        android:textColor="@color/tag_text"
+        android:textSize="15sp" />
+
+    <RadioButton
+        android:id="@+id/rb_tomorrow"
+        style="@style/tag_style"
+        android:text="@string/tomorrow"
+        android:textColor="@color/tag_text"
+        android:textSize="15sp" />
+
+
+</RadioGroup>

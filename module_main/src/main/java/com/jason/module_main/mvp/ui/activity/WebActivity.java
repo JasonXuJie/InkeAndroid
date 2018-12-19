@@ -1,6 +1,8 @@
 package com.jason.module_main.mvp.ui.activity;
 
 import android.graphics.Bitmap;
+import android.support.v7.widget.Toolbar;
+import android.view.View;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -21,6 +23,7 @@ import com.just.agentweb.AgentWebConfig;
 public class WebActivity extends BaseActivity {
 
 
+    private Toolbar toolBar;
     private FrameLayout layout_web_container;
     private AgentWeb mAgentWeb;
 
@@ -36,6 +39,7 @@ public class WebActivity extends BaseActivity {
 
     @Override
     public void initViews() {
+        toolBar = findViewById(R.id.toolBar);
         String url = getIntent().getStringExtra("url");
         layout_web_container = findViewById(R.id.layout_web_container);
         mAgentWeb = AgentWeb.with(this)
@@ -46,6 +50,16 @@ public class WebActivity extends BaseActivity {
                 .createAgentWeb()
                 .ready()
                 .go(url);
+        setToolBarByBack(toolBar, "", new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mAgentWeb!=null&&mAgentWeb.back()){
+                    mAgentWeb.back();
+                }else {
+                    finish();
+                }
+            }
+        });
     }
 
     @Override
@@ -72,7 +86,7 @@ public class WebActivity extends BaseActivity {
         public void onReceivedTitle(WebView view, String title) {
             super.onReceivedTitle(view, title);
             if (!StringUtil.isEmpty(title)){
-
+                setToolBarTitle(title);
             }
         }
     };

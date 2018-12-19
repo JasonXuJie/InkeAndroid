@@ -17,6 +17,8 @@
         <activity android:name=".mvp.ui.activity.WebActivity"
             android:process=":web"
             android:screenOrientation="portrait"/>
+        <activity android:name=".mvp.ui.activity.CityActivity"
+            android:screenOrientation="portrait"/>
         <activity android:name=".mvp.ui.activity.PluginActivity"
             android:screenOrientation="portrait"/>
     </application>

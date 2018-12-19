@@ -6,14 +6,14 @@
 
     <android.support.v7.widget.Toolbar
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="?attr/actionBarSize"
         android:background="@color/C_0099fd">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="@string/tab_my"
+            android:text="@string/my_title"
             android:textColor="@color/white"
             android:textSize="14sp" />
 
@@ -54,12 +54,13 @@
 
     </LinearLayout>
 
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:paddingBottom="5dp"
-        android:paddingTop="5dp">
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp">
 
         <TextView
             android:id="@+id/tv_horoscope"
@@ -99,14 +100,18 @@
 
     </LinearLayout>
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:background="@color/C_F5F5F5" />
+
     <LinearLayout
         android:id="@+id/layout_function"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:divider="@drawable/shape_one_px_divider"
         android:orientation="vertical"
-        android:showDividers="beginning|middle|end"
-        android:divider="@drawable/shape_one_px_divider"/>
+        android:showDividers="middle|end" />
 
 
 </LinearLayout>

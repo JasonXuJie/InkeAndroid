@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">module_event</string>
-    <string name="module_name">同城活动</string>
+    <string name="event_title">同城活动</string>
+    <string name="future">将来</string>
+    <string name="week">本周</string>
+    <string name="weekend">周末</string>
+    <string name="today">今日</string>
+    <string name="tomorrow">明日</string>
 </resources>

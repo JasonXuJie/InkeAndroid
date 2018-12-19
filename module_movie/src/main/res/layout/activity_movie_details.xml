@@ -20,7 +20,7 @@
                 android:id="@+id/view_bg"
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
-                android:background="@color/colorPrimary" />
+                android:background="@color/C_0099fd" />
 
             <ImageView
                 android:id="@+id/img_movie_icon"
@@ -133,12 +133,16 @@
 
             <TextView
                 android:id="@+id/tv_want_look"
-                android:layout_width="120dp"
+                android:layout_width="wrap_content"
                 android:layout_height="50dp"
                 android:layout_marginTop="15dp"
                 android:background="@drawable/shape_tv_look"
+                android:drawablePadding="6dp"
+                android:drawableStart="@drawable/want_look"
                 android:gravity="center"
-                android:text="我想看"
+                android:paddingEnd="30dp"
+                android:paddingStart="30dp"
+                android:text="想看"
                 android:textColor="@color/black"
                 android:textSize="14sp"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -147,10 +151,14 @@
 
             <TextView
                 android:id="@+id/tv_looked"
-                android:layout_width="120dp"
+                android:layout_width="wrap_content"
                 android:layout_height="50dp"
                 android:background="@drawable/shape_tv_look"
+                android:drawablePadding="6dp"
+                android:drawableStart="@drawable/looked"
                 android:gravity="center"
+                android:paddingEnd="30dp"
+                android:paddingStart="30dp"
                 android:text="看过"
                 android:textColor="@color/black"
                 android:textSize="14sp"
@@ -219,7 +227,7 @@
                 android:textSize="14sp"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv_title_introduce"/>
+                app:layout_constraintTop_toBottomOf="@id/tv_title_introduce" />
 
 
         </android.support.constraint.ConstraintLayout>
