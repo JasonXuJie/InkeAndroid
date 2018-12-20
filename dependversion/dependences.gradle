@@ -20,6 +20,8 @@ ext{
     viewModelandLiveDataVersion = "1.1.1"
     vlayoutVersion = "1.2.8"
     immersionBarVersion = "2.3.3-beta09"
+    flexBoxVs = "1.0.0"
+    photoViewVs = "2.1.0"
 
 
     androidWidgets = [
@@ -27,7 +29,9 @@ ext{
        constraint:"com.android.support.constraint:constraint-layout:${constraintLayoutVersion}",
        design:"com.android.support:design:${androidWidgetsVersion}",
        card:"com.android.support:cardview-v7:${androidWidgetsVersion}",
-       recycler:"com.android.support:recyclerview-v7:${androidWidgetsVersion}"
+       recycler:"com.android.support:recyclerview-v7:${androidWidgetsVersion}",
+       flexBox:"com.google.android:flexbox:${flexBoxVs}"
+
     ]
 
     tools = [
@@ -41,7 +45,8 @@ ext{
        viewModelandLiveData:"android.arch.lifecycle:extensions:${viewModelandLiveDataVersion}",
        viewModelandLiveDataAnnotation:"android.arch.lifecycle:compiler:${viewModelandLiveDataVersion}",
        vlayout:"com.alibaba.android:vlayout:${vlayoutVersion}@aar",
-       immersionbar:"com.gyf.immersionbar:immersionbar:${immersionBarVersion}"
+       immersionbar:"com.gyf.immersionbar:immersionbar:${immersionBarVersion}",
+       photoView:"com.github.chrisbanes:PhotoView:${photoViewVs}"
 
     ]
 }

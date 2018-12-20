@@ -19,6 +19,8 @@
             android:screenOrientation="portrait"/>
         <activity android:name=".mvp.ui.activity.CityActivity"
             android:screenOrientation="portrait"/>
+        <activity android:name=".mvp.ui.activity.SearchActivity"
+            android:screenOrientation="portrait"/>
         <activity android:name=".mvp.ui.activity.PluginActivity"
             android:screenOrientation="portrait"/>
     </application>

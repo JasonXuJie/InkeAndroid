@@ -2,6 +2,7 @@ package com.jason.module_my.mvp.ui.activity;
 
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
+import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -50,7 +51,7 @@ public class TodayInHistoryActivity extends BaseActivity {
         viewModel = ViewModelProviders.of(this).get(HistoryListViewModel.class);
         viewModel.getList().observe(this, new Observer<List<HistoryContent>>() {
             @Override
-            public void onChanged(@Nullable List<HistoryContent> data) {
+            public void onChanged(@Nullable final List<HistoryContent> data) {
                 if (data==null){
                     showLoading();
                 }else {
@@ -60,7 +61,10 @@ public class TodayInHistoryActivity extends BaseActivity {
                     adapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
                         @Override
                         public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
-
+                            Bundle bundle = new Bundle();
+                            bundle.putString("title",data.get(position).getTitle());
+                            bundle.putString("id",data.get(position).getE_id());
+                            openActivityByParams(HistoryDetailsActivity.class,bundle);
                         }
                     });
                 }

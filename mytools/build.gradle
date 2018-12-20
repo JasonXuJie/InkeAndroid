@@ -30,6 +30,8 @@ dependencies {
     api android.design
     api android.card
     api android.recycler
+    api android.flexBox
+
 
     api 'com.noober.background:core:1.3.0'
     implementation'com.github.tbruyelle:rxpermissions:0.10.2'
@@ -53,6 +55,8 @@ dependencies {
         transitive = true
     }
     api depends.immersionbar
+    api depends.photoView
+
 
 
 

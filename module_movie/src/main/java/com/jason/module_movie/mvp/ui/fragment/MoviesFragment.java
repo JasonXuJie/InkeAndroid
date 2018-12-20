@@ -99,7 +99,7 @@ public class MoviesFragment extends BaseFragment<IndexPresenter> implements Inde
         adapter.setOnSearchListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+               ARouter.getInstance().build(RouterConfig.SEARCH_PATH).navigation();
             }
         });
         adapters.addAdapter(new ActionAdapter(activity, new SingleLayoutHelper()));
