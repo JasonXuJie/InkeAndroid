@@ -1,7 +1,11 @@
 if(isModule.toBoolean()){
     apply plugin: 'com.android.application'
+    apply plugin: 'kotlin-android'
+    apply plugin: 'kotlin-android-extensions'
 }else{
     apply plugin: 'com.android.library'
+    apply plugin: 'kotlin-android'
+    apply plugin: 'kotlin-android-extensions'
 }
 android {
     compileSdkVersion rootProject.ext.androidCompileSdkVersion
@@ -51,6 +55,8 @@ dependencies {
     def depends = rootProject.ext.tools
     api depends.aRouter
     annotationProcessor depends.aRouterAnnotation
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation depends.pickerView
 }
 
 

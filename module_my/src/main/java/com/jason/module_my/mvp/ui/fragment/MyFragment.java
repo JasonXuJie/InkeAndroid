@@ -1,6 +1,7 @@
 package com.jason.module_my.mvp.ui.fragment;
 
 
+import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -9,6 +10,8 @@ import android.widget.TextView;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.jason.module_my.R;
+import com.jason.module_my.mvp.ui.activity.LuckActivity;
+import com.jason.module_my.mvp.ui.activity.PairingActivity;
 import com.jason.module_my.mvp.ui.activity.TodayInHistoryActivity;
 import com.jason.tools.base.BaseFragment;
 import com.jason.tools.base.BasePresenter;
@@ -22,6 +25,9 @@ import com.jason.tools.utils.PlatformUtil;
 public class MyFragment extends BaseFragment implements View.OnClickListener {
 
     private ImageView img_header;
+    private TextView tv_horoscope;
+    private TextView tv_constellation_matching;
+    private TextView tv_chinese_zodiac_matching;
     private LinearLayout layout_function;
 
     private String[] titles = {"历史上的今天", "Item 2", "Item 3", "Item 4", "Item 5", "Item 6"};
@@ -39,8 +45,14 @@ public class MyFragment extends BaseFragment implements View.OnClickListener {
     @Override
     public void initViews(View view) {
         img_header = view.findViewById(R.id.img_header);
+        tv_horoscope = view.findViewById(R.id.tv_horoscope);
+        tv_constellation_matching = view.findViewById(R.id.tv_constellation_matching);
+        tv_chinese_zodiac_matching = view.findViewById(R.id.tv_chinese_zodiac_matching);
         layout_function = view.findViewById(R.id.layout_function);
         img_header.setOnClickListener(this);
+        tv_horoscope.setOnClickListener(this);
+        tv_constellation_matching.setOnClickListener(this);
+        tv_chinese_zodiac_matching.setOnClickListener(this);
         _renderList();
     }
 
@@ -112,9 +124,23 @@ public class MyFragment extends BaseFragment implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-        if (v.getId() == R.id.img_header) {
-            //openActivityByNoParams(TestActivity.class);
+        int id = v.getId();
+        if (id == R.id.img_header) {
             ARouter.getInstance().build("/my/test").navigation();
+        }else if (id == R.id.tv_horoscope){
+            openActivityByNoParams(LuckActivity.class);
+        }else if (id == R.id.tv_constellation_matching){
+            openPairingActivity("星座配对",1);
+        }else if (id == R.id.tv_chinese_zodiac_matching){
+            openPairingActivity("生肖配对",2);
         }
+    }
+
+
+    private void openPairingActivity(String title,int flag){
+        Bundle bundle = new Bundle();
+        bundle.putString("title",title);
+        bundle.putInt("flag",flag);
+        openActivityByParams(PairingActivity.class,bundle);
     }
 }

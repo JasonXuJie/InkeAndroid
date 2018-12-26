@@ -24,6 +24,12 @@
         <activity
             android:name=".mvp.ui.activity.HistoryDetailsActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.ui.activity.LuckActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".mvp.ui.activity.PairingActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 

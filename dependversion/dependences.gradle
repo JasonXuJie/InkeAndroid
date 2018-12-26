@@ -22,6 +22,7 @@ ext{
     immersionBarVersion = "2.3.3-beta09"
     flexBoxVs = "1.0.0"
     photoViewVs = "2.1.0"
+    pickerViewVs = "4.1.6"
 
 
     androidWidgets = [
@@ -46,7 +47,8 @@ ext{
        viewModelandLiveDataAnnotation:"android.arch.lifecycle:compiler:${viewModelandLiveDataVersion}",
        vlayout:"com.alibaba.android:vlayout:${vlayoutVersion}@aar",
        immersionbar:"com.gyf.immersionbar:immersionbar:${immersionBarVersion}",
-       photoView:"com.github.chrisbanes:PhotoView:${photoViewVs}"
+       photoView:"com.github.chrisbanes:PhotoView:${photoViewVs}",
+       pickerView:"com.contrarywind:Android-PickerView:${pickerViewVs}"
 
     ]
 }
