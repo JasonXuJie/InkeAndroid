@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.alibaba.android.arouter.launcher.ARouter;
+//import com.didi.virtualapk.PluginManager;
 import com.didi.virtualapk.PluginManager;
 import com.gyf.barlibrary.ImmersionBar;
 import com.jason.module_main.R;
@@ -132,16 +133,17 @@ public class GuideActivity extends BaseActivity implements View.OnClickListener{
     @Override
     public void onClick(View v) {
         if (v.getId()==R.id.btn_login){
-            String packageName = "com.jason.plugin";
-            if (PluginManager.getInstance(this).getLoadedPlugin(packageName)==null){
-                openActivityByNoParams(MainActivity.class);
-                Logger.e("为空");
-            }else {
-                Intent intent = new Intent();
-                intent.setClassName(this,"com.jason.plugin.FirstActivity");
-                startActivity(intent);
-            }
+//            String packageName = "com.jason.plugin";
+//            if (PluginManager.getInstance(this).getLoadedPlugin(packageName)==null){
+//                openActivityByNoParams(MainActivity.class);
+//                Logger.e("为空");
+//            }else {
+//                Intent intent = new Intent();
+//                intent.setClassName(this,"com.jason.plugin.FirstActivity");
+//                startActivity(intent);
+//            }
             //openActivityByNoParams(PluginActivity.class);
+            openActivityByNoParams(MainActivity.class);
 
         }
     }

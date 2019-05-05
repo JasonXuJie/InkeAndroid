@@ -1,0 +1,10 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.jason.module_flutter" >
+
+    <application android:theme="@style/AppTheme">
+        <activity android:name=".ui.MyFlutterActivity"
+            android:screenOrientation="portrait"/>
+    </application>
+
+
+</manifest>

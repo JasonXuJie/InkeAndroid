@@ -1,12 +1,7 @@
 package com.jason.tools.utils;
 
 
-//import android.support.v4.app.FragmentActivity;
-//import com.tbruyelle.rxpermissions2.Permission;
-//import com.tbruyelle.rxpermissions2.RxPermissions;
-//import io.reactivex.functions.Consumer;
 
-import android.app.Activity;
 import android.support.v4.app.FragmentActivity;
 
 import com.tbruyelle.rxpermissions2.Permission;

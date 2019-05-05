@@ -19,6 +19,12 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
     }
+
+    compileOptions {
+        sourceCompatibility 1.8
+        targetCompatibility 1.8
+    }
+
     buildTypes {
 //        debug {
 //            minifyEnabled false
@@ -39,7 +45,7 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
-    compile 'com.didi.virtualapk:core:0.9.8'
+    implementation 'com.didi.virtualapk:core:0.9.8'
     if (isModule.toBoolean()) {
         implementation project(':mytools')
     } else {
@@ -48,6 +54,7 @@ dependencies {
         implementation project(':module_event')
         implementation project(':module_news')
         implementation project(':module_my')
+        implementation project(':module_flutter')
 
     }
 }

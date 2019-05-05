@@ -7,6 +7,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -93,6 +94,7 @@ public abstract class BaseActivity<T extends BasePresenter> extends AppCompatAct
     public void hideLoading(){
         if (dialog!=null){
             dialog.dismiss();
+            dialog = null;
         }
     }
 
@@ -117,6 +119,19 @@ public abstract class BaseActivity<T extends BasePresenter> extends AppCompatAct
 
     public void setToolBarTitle(String title){
         if (tv_title!=null)tv_title.setText(title);
+    }
+
+
+    /**
+     * @param view 输入控件
+     * */
+    public void hideKeyBoard(View view) {
+        InputMethodManager methodManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+        if (methodManager != null) {
+            if (methodManager.isActive()) {
+                methodManager.hideSoftInputFromWindow(view.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+            }
+        }
     }
 
 

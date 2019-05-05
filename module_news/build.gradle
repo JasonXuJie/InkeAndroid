@@ -49,8 +49,10 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
-    compile project(':mytools')
+    implementation project(':mytools')
     def depends = rootProject.ext.tools
-    api depends.aRouter
+    api (depends.aRouter){
+        exclude module:"support-v4"
+    }
     annotationProcessor depends.aRouterAnnotation
 }

@@ -53,7 +53,7 @@ public class LoadingDialog extends DialogFragment {
 
     @Override
     public void onDestroy() {
-        if (lottieView != null && lottieView.isAnimating()) {
+        if (lottieView != null) {
             lottieView.cancelAnimation();
         }
         super.onDestroy();

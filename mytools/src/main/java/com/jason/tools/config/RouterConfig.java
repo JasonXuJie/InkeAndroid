@@ -12,4 +12,5 @@ public class RouterConfig {
     public static final String WEB_PATH="/main/web";
     public static final String CITY_PATH="/main/city";
     public static final String SEARCH_PATH="/main/search";
+    public static final String FLUTTER_PATH = "/flutter/flutter";
 }

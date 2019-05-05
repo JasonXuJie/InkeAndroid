@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.Space;
 import android.widget.TextView;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
@@ -17,6 +16,7 @@ import com.jason.tools.base.BaseFragment;
 import com.jason.tools.base.BasePresenter;
 import com.jason.tools.config.RouterConfig;
 import com.jason.tools.utils.PlatformUtil;
+
 
 /**
  * Created by jason on 2018/10/26.
@@ -30,7 +30,7 @@ public class MyFragment extends BaseFragment implements View.OnClickListener {
     private TextView tv_chinese_zodiac_matching;
     private LinearLayout layout_function;
 
-    private String[] titles = {"历史上的今天", "Item 2", "Item 3", "Item 4", "Item 5", "Item 6"};
+    private String[] titles = {"历史上的今天", "Flutter", "Item 3", "Item 4", "Item 5", "Item 6"};
 
     @Override
     public BasePresenter createPresenter() {
@@ -100,6 +100,7 @@ public class MyFragment extends BaseFragment implements View.OnClickListener {
                             openActivityByNoParams(TodayInHistoryActivity.class);
                             break;
                         case 1:
+                            ARouter.getInstance().build(RouterConfig.FLUTTER_PATH).navigation();
                             break;
                         case 2:
                             break;

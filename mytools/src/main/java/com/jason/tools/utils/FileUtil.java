@@ -445,7 +445,7 @@ public final class FileUtil {
      */
     public static boolean existsFile(File file) {
         return file != null && file.exists() && file.isFile();
-    }
+    } 
 
     /**
      * Delete file if exist path
