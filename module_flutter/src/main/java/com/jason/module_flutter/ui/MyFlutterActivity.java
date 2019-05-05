@@ -45,6 +45,7 @@ public class MyFlutterActivity extends BaseActivity {
         };
         flutterView.addFirstFrameListener(listeners[0]);
         FinishChannel.registerWith(flutterView.getPluginRegistry().registrarFor(FinishChannel.CHANNEL));
+
     }
 
     @Override
