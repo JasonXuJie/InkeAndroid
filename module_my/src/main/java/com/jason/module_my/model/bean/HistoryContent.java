@@ -1,4 +1,4 @@
-package com.jason.tools.http.bean;
+package com.jason.module_my.model.bean;
 
 /**
  * Created by jason on 2018/11/27.

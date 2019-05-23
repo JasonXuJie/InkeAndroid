@@ -8,11 +8,7 @@ import com.jason.tools.http.BaseObserver;
 import com.jason.tools.http.RetrofitManager;
 import com.jason.tools.http.RxSchedulers;
 import com.jason.tools.http.bean.JuheBaseResult;
-
 import java.util.List;
-
-import io.reactivex.Observer;
-import io.reactivex.disposables.Disposable;
 
 /**
  * Created by jason on 2018/12/20.

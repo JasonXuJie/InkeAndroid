@@ -16,4 +16,8 @@ public class PlatformUtil {
     public static boolean isLollipop(){
         return Build.VERSION.SDK_INT>=Build.VERSION_CODES.LOLLIPOP;
     }
+
+    public static boolean isN(){
+        return Build.VERSION.SDK_INT>=Build.VERSION_CODES.N_MR1;
+    }
 }

@@ -3,9 +3,9 @@ package com.jason.module_news.mvp.presenter;
 import com.jason.module_news.mvp.callback.OnRequestCallBack;
 import com.jason.module_news.mvp.contract.NewsContract;
 import com.jason.module_news.mvp.model.NewsModel;
+import com.jason.module_news.mvp.model.bean.NewsType;
 import com.jason.tools.base.BasePresenter;
-import com.jason.tools.http.bean.NewsResult;
-import com.jason.tools.http.bean.NewsType;
+
 
 import java.util.List;
 

@@ -29,11 +29,11 @@ public class AppInfoUtil {
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
         }
-         return null;
+         return "";
     }
 
     /**
-     * [获取应用程序版本名称信息]
+     * 获取versionName
      *
      * @param context
      * @return 当前应用的版本名称
@@ -46,8 +46,27 @@ public class AppInfoUtil {
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
         }
-        return null;
+        return "";
     }
+
+    /**
+     * 获取versionCode
+     * **/
+    public static int getVersionCode(Context context){
+        PackageManager packageManager = context.getPackageManager();
+        try {
+            PackageInfo packageInfo = packageManager.getPackageInfo(context.getPackageName(),0);
+            return packageInfo.versionCode;
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+
+
+
+
+
 
 
 }

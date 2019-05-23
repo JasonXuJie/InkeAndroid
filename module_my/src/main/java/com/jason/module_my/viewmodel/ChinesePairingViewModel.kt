@@ -4,11 +4,8 @@ import android.app.Application
 import android.arch.lifecycle.AndroidViewModel
 import android.arch.lifecycle.MutableLiveData
 import com.jason.module_my.model.bean.ChinesePairingBean
-import com.jason.module_my.model.bean.PairingBean
 import com.jason.module_my.model.callback.OnRequestCallBack
 import com.jason.module_my.model.repository.ChinesePairingRepository
-import com.jason.module_my.model.repository.PairingRepository
-import com.jason.tools.http.bean.HistoryContent
 
 /**
  * Created by jason on 2018/12/26.

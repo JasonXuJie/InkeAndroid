@@ -2,4 +2,6 @@
     <string name="app_name">module_movie</string>
     <string name="more">更多</string>
     <string name="movie_title">电影</string>
+    <string name="city_change">城市切换在这里点击</string>
+    <string name="i_know">我知道了</string>
 </resources>

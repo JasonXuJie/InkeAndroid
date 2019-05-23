@@ -1,8 +1,6 @@
 package com.jason.tools.http;
 
 import com.jason.tools.http.bean.JuheBaseResult;
-
-import io.reactivex.Observable;
 import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
 
@@ -26,12 +24,14 @@ public abstract class BaseObserver<T> implements Observer<JuheBaseResult<T>> {
     public void onNext(JuheBaseResult<T> result) {
         if (result.getError_code()==0){
             onSuccess(result.getResult());
+        }else {
+            onFailed(result.getReason());
         }
     }
 
     @Override
     public void onError(Throwable e) {
-        onFailed(e.getMessage());
+       ExceptionHandler.handle(e);
     }
 
     @Override

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/navOneFragment">
+
+    <fragment
+        android:id="@+id/navOneFragment"
+        android:name="com.jason.plugin.NavOneFragment"
+        android:label="NavOneFragment"
+        tools:layout="@layout/fragment_nav_one">
+
+
+        <!--动画-->
+        <action
+            android:id="@+id/action_page2"
+            app:destination="@id/navTwoFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"
+            />
+
+        <action android:id="@+id/to_act"
+            app:destination="@id/TestActivity"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/navTwoFragment"
+        android:name="com.jason.plugin.NavTwoFragment"
+        android:label="NavTwoFragment"
+        tools:layout="@layout/fragment_nav_two">
+
+        <action
+            android:id="@+id/action_page1"
+            app:popUpTo="@id/navOneFragment"/>
+
+        <action
+            android:id="@+id/action_page3"
+            app:destination="@id/navThreeFragment"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/navThreeFragment"
+        android:name="com.jason.plugin.NavThreeFragment"
+        android:label="NavThreeFragment"
+        tools:layout="@layout/fragment_nav_three">
+
+        <action
+            android:id="@+id/back_one"
+            app:popUpTo="@id/navOneFragment"
+            app:popUpToInclusive="true"/>
+    </fragment>
+
+    <activity android:id="@+id/TestActivity"
+        android:name="com.jason.plugin.TestActivity"
+        android:label="TestActivity"
+        tools:layout="@layout/activity_test_two"/>
+</navigation>

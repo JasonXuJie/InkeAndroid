@@ -14,22 +14,29 @@ public class ToastUtil {
 
     private static boolean isShow = true;
     private static Toast mToast = null;//全局唯一Toast
+    private static Context mContext;
 
     /*private控制不应该被实例化*/
-    private ToastUtil(){
+    private ToastUtil() {
         throw new UnsupportedOperationException("Cannot be instantiated");
+    }
+
+
+    public static void init(Context context) {
+        mContext = context.getApplicationContext();
     }
 
     /**
      * 全局控制是否显示Toast
+     *
      * @param isShowToast
      */
-    public static void controlShow(boolean isShowToast){
+    public static void controlShow(boolean isShowToast) {
         isShow = isShowToast;
     }
 
-    public void cancelToast(){
-        if (isShow && mToast!=null){
+    public void cancelToast() {
+        if (isShow && mToast != null) {
             mToast.cancel();
         }
     }
@@ -37,69 +44,84 @@ public class ToastUtil {
     /**
      * 短时间显示Toast
      *
-     * @param context
      * @param message
      */
-    public static void showShort(Context context,CharSequence message){
-        if (isShow){
-            if (mToast==null){
-                mToast = Toast.makeText(context,message,Toast.LENGTH_SHORT);
-            }else {
-                mToast.setText(message);
+    public static void showShort(CharSequence message) {
+        if (mContext != null) {
+            if (isShow) {
+                if (mToast == null) {
+                    mToast = Toast.makeText(mContext, message, Toast.LENGTH_SHORT);
+                } else {
+                    mToast.setText(message);
+                }
+                mToast.show();
             }
-            mToast.show();
+        } else {
+            throw new UnsupportedOperationException("should be init");
         }
+
     }
 
     /**
      * 短时间显示Toast
      *
-     * @param context
      * @param resId 资源ID:getResources().getString(R.string.xxxxxx);
      */
-    public static void showShort(Context context,int resId){
-        if (isShow){
-            if (mToast==null){
-                mToast = Toast.makeText(context,resId,Toast.LENGTH_SHORT);
-            }else {
-                mToast.setText(resId);
+    public static void showShort(int resId) {
+        if (mContext != null) {
+            if (isShow) {
+                if (mToast == null) {
+                    mToast = Toast.makeText(mContext, resId, Toast.LENGTH_SHORT);
+                } else {
+                    mToast.setText(resId);
+                }
+                mToast.show();
             }
-            mToast.show();
+        } else {
+            throw new UnsupportedOperationException("should be init");
         }
+
     }
 
 
     /**
      * 长时间显示Toast
      *
-     * @param context
      * @param message
      */
-    public static void showLong(Context context,CharSequence message){
-        if (isShow){
-            if (mToast==null){
-                mToast = Toast.makeText(context,message,Toast.LENGTH_LONG);
-            }else {
-                mToast.setText(message);
+    public static void showLong(CharSequence message) {
+        if (mContext != null) {
+            if (isShow) {
+                if (mToast == null) {
+                    mToast = Toast.makeText(mContext, message, Toast.LENGTH_LONG);
+                } else {
+                    mToast.setText(message);
+                }
+                mToast.show();
             }
-            mToast.show();
+        } else {
+            throw new UnsupportedOperationException("should be init");
         }
+
     }
 
     /**
      * 长时间显示Toast
      *
-     * @param context
      * @param resId 资源ID:getResources().getString(R.string.xxxxxx);
      */
-    public static void showLong(Context context,int resId){
-        if (isShow){
-            if (mToast == null){
-                mToast = Toast.makeText(context,resId,Toast.LENGTH_LONG);
-            }else {
-                mToast.setText(resId);
+    public static void showLong(int resId) {
+        if (mContext != null) {
+            if (isShow) {
+                if (mToast == null) {
+                    mToast = Toast.makeText(mContext, resId, Toast.LENGTH_LONG);
+                } else {
+                    mToast.setText(resId);
+                }
+                mToast.show();
             }
-            mToast.show();
+        } else {
+            throw new UnsupportedOperationException("should be init");
         }
     }
 
@@ -107,86 +129,103 @@ public class ToastUtil {
     /**
      * 自定义显示Toast时间
      *
-     * @param context
      * @param message
      * @param duration 单位:毫秒
      */
-    public static void show(Context context,CharSequence message,int duration){
-        if (isShow){
-            if (mToast==null){
-                mToast = Toast.makeText(context,message,duration);
-            }else {
-                mToast.setText(message);
+    public static void show(CharSequence message, int duration) {
+        if (mContext != null) {
+            if (isShow) {
+                if (mToast == null) {
+                    mToast = Toast.makeText(mContext, message, duration);
+                } else {
+                    mToast.setText(message);
+                }
+                mToast.show();
             }
-            mToast.show();
+        } else {
+            throw new UnsupportedOperationException("should be init");
         }
     }
 
     /**
      * 自定义显示Toast时间
      *
-     * @param context
-     * @param resId 资源ID:getResources().getString(R.string.xxxxxx);
+     * @param resId    资源ID:getResources().getString(R.string.xxxxxx);
      * @param duration 单位:毫秒
      */
-    public static void show(Context context,int resId,int duration){
-        if (isShow){
-            if (mToast==null){
-                mToast = Toast.makeText(context,resId,duration);
-            }else {
-                mToast.setText(resId);
+    public static void show(int resId, int duration) {
+        if (mContext != null) {
+            if (isShow) {
+                if (mToast == null) {
+                    mToast = Toast.makeText(mContext, resId, duration);
+                } else {
+                    mToast.setText(resId);
+                }
+                mToast.show();
             }
-            mToast.show();
+        } else {
+            throw new UnsupportedOperationException("should be init");
         }
+
     }
 
 
     /**
      * 自定义Toast的View
-     * @param context
+     *
      * @param message
      * @param duration 单位:毫秒
-     * @param view 显示自己的View
+     * @param view     显示自己的View
      */
-    public static void showCustomToast(Context context,CharSequence message,int duration,View view){
-        if (isShow){
-            if (mToast==null){
-                mToast = Toast.makeText(context,message,duration);
-            }else {
-                mToast.setText(message);
+    public static void showCustomToast(CharSequence message, int duration, View view) {
+        if (mContext != null) {
+            if (isShow) {
+                if (mToast == null) {
+                    mToast = Toast.makeText(mContext, message, duration);
+                } else {
+                    mToast.setText(message);
+                }
+                if (view != null) {
+                    mToast.setView(view);
+                }
+                mToast.show();
             }
-            if (view!=null){
-                mToast.setView(view);
-            }
-            mToast.show();
+        } else {
+            throw new UnsupportedOperationException("should be init");
         }
+
     }
 
 
     /**
      * 自定义Toast的位置
-     * @param context
+     *
      * @param message
      * @param duration 单位:毫秒
      * @param gravity
      * @param xOffset
      * @param yOffset
      */
-    public static void showCustomToastGravity(Context context,CharSequence message,int duration,int gravity,int xOffset,int yOffset){
-        if (isShow){
-            if (mToast == null){
-                mToast = Toast.makeText(context,message,duration);
-            }else {
-                mToast.setText(message);
+    public static void showCustomToastGravity(CharSequence message, int duration, int gravity, int xOffset, int yOffset) {
+        if (mContext != null) {
+            if (isShow) {
+                if (mToast == null) {
+                    mToast = Toast.makeText(mContext, message, duration);
+                } else {
+                    mToast.setText(message);
+                }
+                mToast.setGravity(gravity, xOffset, yOffset);
+                mToast.show();
             }
-            mToast.setGravity(gravity,xOffset,yOffset);
-            mToast.show();
+        } else {
+            throw new UnsupportedOperationException("should be init");
         }
+
     }
 
     /**
      * 自定义带图片和文字的Toast，最终的效果就是上面是图片，下面是文字
-     * @param context
+     *
      * @param message
      * @param iconResId 图片的资源id,如:R.drawable.icon
      * @param duration
@@ -194,101 +233,106 @@ public class ToastUtil {
      * @param xOffset
      * @param yOffset
      */
-    public static void showCunstomToastWithImageAndText(Context context,CharSequence message,int iconResId,int duration,int gravity,int xOffset,int yOffset){
-        if (isShow){
-            if (mToast == null){
-                mToast = Toast.makeText(context,message,duration);
-            }else {
-                mToast.setText(message);
+    public static void showCunstomToastWithImageAndText(CharSequence message, int iconResId, int duration, int gravity, int xOffset, int yOffset) {
+        if (mContext != null) {
+            if (isShow) {
+                if (mToast == null) {
+                    mToast = Toast.makeText(mContext, message, duration);
+                } else {
+                    mToast.setText(message);
+                }
+                mToast.setGravity(gravity, xOffset, yOffset);
+                LinearLayout toastView = (LinearLayout) mToast.getView();
+                ImageView imageView = new ImageView(mContext);
+                imageView.setImageResource(iconResId);
+                toastView.addView(imageView, 0);
+                mToast.show();
             }
-            mToast.setGravity(gravity,xOffset,yOffset);
-            LinearLayout toastView = (LinearLayout) mToast.getView();
-            ImageView imageView = new ImageView(context);
-            imageView.setImageResource(iconResId);
-            toastView.addView(imageView,0);
-            mToast.show();
+        } else {
+            throw new UnsupportedOperationException("should be init");
         }
+
     }
 
 
     /**
      * 自定义Toast,针对类型CharSequence
-     * @param context
+     *
      * @param message
      * @param duration
      * @param view
-     * @param isGravity true,表示后面的三个布局参数生效,false,表示不生效
+     * @param isGravity        true,表示后面的三个布局参数生效,false,表示不生效
      * @param gravity
      * @param xOffset
      * @param yOffset
-     * @param isMargin true,表示后面的两个参数生效，false,表示不生效
+     * @param isMargin         true,表示后面的两个参数生效，false,表示不生效
      * @param horizontalMargin
      * @param verticalMargin
      */
-    public static void showCustomToastAll(Context context,CharSequence message,int duration,View view,boolean isGravity,int gravity,int xOffset,
-                                          int yOffset,boolean isMargin,float horizontalMargin,float verticalMargin){
+    public static void showCustomToastAll(CharSequence message, int duration, View view, boolean isGravity, int gravity, int xOffset,
+                                          int yOffset, boolean isMargin, float horizontalMargin, float verticalMargin) {
 
-        if (isShow){
-            if (mToast==null){
-                mToast = Toast.makeText(context,message,duration);
-            }else {
-                mToast.setText(message);
+        if (mContext != null) {
+            if (isShow) {
+                if (mToast == null) {
+                    mToast = Toast.makeText(mContext, message, duration);
+                } else {
+                    mToast.setText(message);
+                }
+                if (view != null) {
+                    mToast.setView(view);
+                }
+                if (isMargin) {
+                    mToast.setMargin(horizontalMargin, verticalMargin);
+                }
+                if (isGravity) {
+                    mToast.setGravity(gravity, xOffset, yOffset);
+                }
+                mToast.show();
             }
-            if (view!=null){
-                mToast.setView(view);
-            }
-            if (isMargin){
-                mToast.setMargin(horizontalMargin, verticalMargin);
-            }
-            if (isGravity){
-                mToast.setGravity(gravity, xOffset, yOffset);
-            }
-            mToast.show();
+        } else {
+            throw new UnsupportedOperationException("should be init");
         }
     }
 
     /**
      * 自定义Toast,针对类型resId
-     * @param context
+     *
      * @param resId
      * @param duration
-     * @param view :应该是一个布局，布局中包含了自己设置好的内容
-     * @param isGravity true,表示后面的三个布局参数生效,false,表示不生效
+     * @param view             :应该是一个布局，布局中包含了自己设置好的内容
+     * @param isGravity        true,表示后面的三个布局参数生效,false,表示不生效
      * @param gravity
      * @param xOffset
      * @param yOffset
-     * @param isMargin true,表示后面的两个参数生效，false,表示不生效
+     * @param isMargin         true,表示后面的两个参数生效，false,表示不生效
      * @param horizontalMargin
      * @param verticalMargin
      */
-    public static void showCustomToastAll(Context context,int resId,int duration,View view,boolean isGravity,int gravity,int xOffset,int yOffset
-            ,boolean isMargin,float horizontalMargin,float verticalMargin){
-        if (isShow){
-            if (mToast==null){
-                mToast = Toast.makeText(context,resId,duration);
-            }else {
-                mToast.setText(resId);
+    public static void showCustomToastAll(int resId, int duration, View view, boolean isGravity, int gravity, int xOffset, int yOffset
+            , boolean isMargin, float horizontalMargin, float verticalMargin) {
+        if (mContext != null) {
+            if (isShow) {
+                if (mToast == null) {
+                    mToast = Toast.makeText(mContext, resId, duration);
+                } else {
+                    mToast.setText(resId);
+                }
+                if (view != null) {
+                    mToast.setView(view);
+                }
+                if (isMargin) {
+                    mToast.setMargin(horizontalMargin, verticalMargin);
+                }
+                if (isGravity) {
+                    mToast.setGravity(gravity, xOffset, yOffset);
+                }
+                mToast.show();
             }
-            if (view!=null){
-                mToast.setView(view);
-            }
-            if (isMargin){
-                mToast.setMargin(horizontalMargin, verticalMargin);
-            }
-            if (isGravity){
-                mToast.setGravity(gravity, xOffset, yOffset);
-            }
-            mToast.show();
+        } else {
+            throw new UnsupportedOperationException("should be init");
         }
     }
-
-
-
-
-
-
-
-
 
 
 }

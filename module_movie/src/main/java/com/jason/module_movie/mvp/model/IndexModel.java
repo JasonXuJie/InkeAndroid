@@ -6,6 +6,8 @@ import com.jason.module_movie.mvp.model.bean.MovieBean;
 import com.jason.module_movie.mvp.model.callback.OnGetBannerCallBack;
 import com.jason.tools.http.RetrofitManager;
 import com.jason.tools.http.RxSchedulers;
+import com.orhanobut.logger.Logger;
+
 import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
 
@@ -25,17 +27,18 @@ public class IndexModel {
                 .subscribe(new Observer<MovieBean>() {
                     @Override
                     public void onSubscribe(Disposable d) {
-
+                        Logger.e("onSubscribe");
                     }
 
                     @Override
                     public void onNext(MovieBean movieBean) {
+                        Logger.e("onNext");
                         if (callBack!=null) callBack.getBanner(movieBean.getSubjects());
                     }
 
                     @Override
                     public void onError(Throwable e) {
-
+                        Logger.e("onError:"+e.getMessage());
                     }
 
                     @Override

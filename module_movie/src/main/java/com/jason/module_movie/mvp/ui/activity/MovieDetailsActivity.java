@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.alibaba.android.arouter.launcher.ARouter;
+import com.bumptech.glide.Glide;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.jason.module_movie.R;
 import com.jason.module_movie.mvp.contract.MovieDetailsContact;
@@ -23,6 +24,10 @@ import com.orhanobut.logger.Logger;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import immortalz.me.library.TransitionsHeleper;
+import immortalz.me.library.bean.InfoBean;
+import immortalz.me.library.method.ColorShowMethod;
 
 
 /**
@@ -82,6 +87,18 @@ public class MovieDetailsActivity extends BaseActivity<MovieDetailsPresenter> im
 
     @Override
     public void requestData() {
+        TransitionsHeleper.getInstance().setShowMethod(new ColorShowMethod(R.color.white,R.color.C_0099fd) {
+            @Override
+            public void loadCopyView(InfoBean bean, ImageView copyView) {
+                 ImageLoader.loadImage(MovieDetailsActivity.this, bean.getImgUrl(), copyView);
+            }
+
+            @Override
+            public void loadTargetView(InfoBean bean, ImageView targetView) {
+                ImageLoader.loadImage(MovieDetailsActivity.this, bean.getImgUrl(), targetView);
+
+            }
+        }).show(this,img_movie_icon);
         String id = getIntent().getStringExtra("id");
         presenter.requestDetails(id);
     }
@@ -100,7 +117,6 @@ public class MovieDetailsActivity extends BaseActivity<MovieDetailsPresenter> im
             countries.append(StringUtil.builder(country,"\t\t"));
         }
         tv_country.setText(countries);
-        ImageLoader.loadImage(this, details.getImages().getMedium(), img_movie_icon);
         tv_summary.setText(details.getSummary());
         final List<Actor> actors = new ArrayList<>();
         for (DetailsBean.DirectorsBean director : details.getDirectors()) {

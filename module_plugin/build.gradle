@@ -10,14 +10,14 @@ android {
             storePassword 'android'
         }
     }
-    compileSdkVersion rootProject.ext.androidCompileSdkVersion
+    compileSdkVersion rootProject.ext.compileSdkVersion
     defaultConfig {
-        minSdkVersion rootProject.ext.androidMinSdkVersion
-        targetSdkVersion rootProject.ext.androidTargetSdkVersion
-        versionCode 1
-        versionName "1.0"
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode rootProject.ext.versionCode
+        versionName rootProject.ext.versionName
 
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner rootProject.ext.testInstrumentationRunner
 
         javaCompileOptions {
             annotationProcessorOptions {
@@ -51,6 +51,7 @@ dependencies {
         exclude module:"support-v4"
     }
     annotationProcessor depends.aRouterAnnotation
+   // implementation 'com.github.JasonXuJie:RxResults:1.0.0'
 
 }
 

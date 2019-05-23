@@ -8,7 +8,7 @@ import android.widget.RelativeLayout;
 import com.chad.library.adapter.base.BaseMultiItemQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.jason.module_news.R;
-import com.jason.tools.http.bean.NewsType;
+import com.jason.module_news.mvp.model.bean.NewsType;
 import com.jason.tools.netimage.ImageLoader;
 import com.jason.tools.utils.PlatformUtil;
 import com.jason.tools.utils.StringUtil;

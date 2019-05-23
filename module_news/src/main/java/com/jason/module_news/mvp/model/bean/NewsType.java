@@ -1,4 +1,4 @@
-package com.jason.tools.http.bean;
+package com.jason.module_news.mvp.model.bean;
 
 import com.chad.library.adapter.base.entity.MultiItemEntity;
 
@@ -11,7 +11,7 @@ public class NewsType implements MultiItemEntity {
     private int itemType;
     private NewsResult.News news;
 
-    public NewsType(NewsResult.News news,int itemType){
+    public NewsType(NewsResult.News news, int itemType){
         this.news = news;
         this.itemType = itemType;
     }

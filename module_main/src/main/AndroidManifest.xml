@@ -9,6 +9,10 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
+            <!--<meta-data-->
+                <!--android:name="android.app.shortcuts"-->
+                <!--android:resource="@xml/shortcuts"/>-->
         </activity>
         <activity android:name=".mvp.ui.activity.GuideActivity"
             android:screenOrientation="portrait"/>
@@ -20,6 +24,8 @@
         <activity android:name=".mvp.ui.activity.CityActivity"
             android:screenOrientation="portrait"/>
         <activity android:name=".mvp.ui.activity.SearchActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".mvp.ui.activity.ShortcutActivity"
             android:screenOrientation="portrait"/>
         <activity android:name=".mvp.ui.activity.PluginActivity"
             android:screenOrientation="portrait"/>

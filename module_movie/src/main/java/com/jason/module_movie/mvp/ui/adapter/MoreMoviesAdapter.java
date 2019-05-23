@@ -66,12 +66,6 @@ public class MoreMoviesAdapter extends DelegateAdapter.Adapter<MoreMoviesAdapter
 //        } else {
 //            layoutParams.mAspectRatio = 0.8f;
 //        }
-        holder.layout_item_more_movie.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (listener!=null)listener.onClick(v,holder.getAdapterPosition(),data.get(holder.getAdapterPosition()));
-            }
-        });
         if (position%2!=0){
             VirtualLayoutManager.LayoutParams layoutParams = new VirtualLayoutManager.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
             layoutParams.mAspectRatio = 0.7f;
@@ -87,7 +81,7 @@ public class MoreMoviesAdapter extends DelegateAdapter.Adapter<MoreMoviesAdapter
         holder.layout_item_more_movie.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (listener!=null)listener.onClick(v,position,data.get(position));
+                if (listener!=null)listener.onClick(holder.img_movie_icon,position,data.get(position));
             }
         });
     }

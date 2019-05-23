@@ -9,11 +9,11 @@ import com.alibaba.android.arouter.launcher.ARouter;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.jason.module_news.R;
 import com.jason.module_news.mvp.contract.NewsContract;
+import com.jason.module_news.mvp.model.bean.NewsType;
 import com.jason.module_news.mvp.presenter.NewsPresenter;
 import com.jason.module_news.mvp.ui.adapter.NewsAdapter;
 import com.jason.tools.base.BaseLazyFragment;
 import com.jason.tools.config.RouterConfig;
-import com.jason.tools.http.bean.NewsType;
 import com.orhanobut.logger.Logger;
 import java.util.List;
 
@@ -57,7 +57,7 @@ public class NewsFragment extends BaseLazyFragment<NewsPresenter> implements New
         if (bundle != null) {
             tag = bundle.getString("tag");
         }
-        Logger.e(tag);
+
     }
 
     @Override

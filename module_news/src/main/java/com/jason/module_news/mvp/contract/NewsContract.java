@@ -1,9 +1,7 @@
 package com.jason.module_news.mvp.contract;
 
+import com.jason.module_news.mvp.model.bean.NewsType;
 import com.jason.tools.base.IBaseView;
-import com.jason.tools.http.bean.NewsResult;
-import com.jason.tools.http.bean.NewsType;
-
 import java.util.List;
 
 /**

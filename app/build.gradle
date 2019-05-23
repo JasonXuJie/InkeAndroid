@@ -9,14 +9,14 @@ android {
             storePassword 'android'
         }
     }
-    compileSdkVersion rootProject.ext.androidCompileSdkVersion
+    compileSdkVersion rootProject.ext.compileSdkVersion
     defaultConfig {
-        applicationId "com.jason.app"
-        minSdkVersion rootProject.ext.androidMinSdkVersion
-        targetSdkVersion rootProject.ext.androidTargetSdkVersion
-        versionCode 1
-        versionName "1.0"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        applicationId rootProject.ext.applicationId
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode rootProject.ext.versionCode
+        versionName rootProject.ext.versionName
+        testInstrumentationRunner rootProject.ext.testInstrumentationRunner
 
     }
 
@@ -45,16 +45,17 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
-    implementation 'com.didi.virtualapk:core:0.9.8'
     if (isModule.toBoolean()) {
         implementation project(':mytools')
     } else {
+        implementation project(':mytools')
         implementation project(':module_main')
         implementation project(':module_movie')
         implementation project(':module_event')
         implementation project(':module_news')
         implementation project(':module_my')
         implementation project(':module_flutter')
-
     }
+    def depends = rootProject.ext.tools
+    implementation depends.virtualapk
 }

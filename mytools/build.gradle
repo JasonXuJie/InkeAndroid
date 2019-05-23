@@ -1,13 +1,13 @@
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion rootProject.ext.androidCompileSdkVersion
+    compileSdkVersion rootProject.ext.compileSdkVersion
 
     defaultConfig {
-        minSdkVersion rootProject.ext.androidMinSdkVersion
-        targetSdkVersion rootProject.ext.androidTargetSdkVersion
-        versionCode 1
-        versionName "1.0"
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode rootProject.ext.versionCode
+        versionName rootProject.ext.versionName
 
 
 
@@ -31,6 +31,11 @@ dependencies {
     api android.card
     api android.recycler
     api android.flexBox
+    api android.workManager
+    api android.navFragment
+    api android.navUi
+    api android.paging
+    api android.pagingRx
 
 
     api 'com.noober.background:core:1.3.0'
@@ -41,9 +46,8 @@ dependencies {
     api 'com.squareup.retrofit2:converter-gson:2.3.0'
     api 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
     api 'com.squareup.okhttp3:logging-interceptor:3.8.1'
-    api 'com.just.agentweb:agentweb:4.0.2'
-    api 'com.github.bumptech.glide:glide:4.9.0'
-    annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'
+
+
     def depends = rootProject.ext.tools
     api depends.logger
     api depends.banner
@@ -56,6 +60,11 @@ dependencies {
     }
     api depends.immersionbar
     api depends.photoView
+    api depends.agentWeb
+    api depends.glide
+    annotationProcessor depends.glideAnno
+    api depends.transitionHelper
+    api depends.guide
 
 
 

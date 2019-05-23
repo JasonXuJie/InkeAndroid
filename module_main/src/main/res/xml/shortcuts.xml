@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <shortcut
+        android:enabled="true"
+        android:icon="@drawable/app_icon"
+        android:shortcutDisabledMessage="@string/shortcut_search_disable"
+        android:shortcutId="search"
+        android:shortcutLongLabel="@string/shortcut_search_long"
+        android:shortcutShortLabel="@string/shortcut_search_short">
+
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetClass="com.jason.module_main.mvp.ui.activity.SearchActivity"
+            android:targetPackage="com.jason.module_main" />
+        <categories android:name="android.shortcut.conversation" />
+
+    </shortcut>
+
+
+    <shortcut
+        android:enabled="true"
+        android:icon="@drawable/app_icon"
+        android:shortcutDisabledMessage="@string/shortcut_today_disable"
+        android:shortcutId="today"
+        android:shortcutLongLabel="@string/shortcut_today_long"
+        android:shortcutShortLabel="@string/shortcut_today_short">
+
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetClass="com.jason.module_my.mvp.ui.activity.TodayInHistoryActivity"
+            android:targetPackage="com.jason.module_my" />
+        <categories android:name="android.shortcut.conversation" />
+
+    </shortcut>
+</shortcuts>

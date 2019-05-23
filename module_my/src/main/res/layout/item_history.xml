@@ -50,6 +50,6 @@
         android:layout_marginEnd="10dp"
         android:layout_marginStart="10dp"
         android:layout_marginTop="20dp"
-        android:background="@color/C_F5F5F5" />
+        android:background="@color/black" />
 
 </RelativeLayout>

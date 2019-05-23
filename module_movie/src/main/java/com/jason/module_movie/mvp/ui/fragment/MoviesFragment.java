@@ -1,9 +1,12 @@
 package com.jason.module_movie.mvp.ui.fragment;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
+import android.view.Gravity;
 import android.view.View;
+import android.widget.Button;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
@@ -14,6 +17,9 @@ import com.alibaba.android.vlayout.layout.GridLayoutHelper;
 import com.alibaba.android.vlayout.layout.LinearLayoutHelper;
 import com.alibaba.android.vlayout.layout.SingleLayoutHelper;
 import com.alibaba.android.vlayout.layout.StaggeredGridLayoutHelper;
+import com.app.hubert.guide.NewbieGuide;
+import com.app.hubert.guide.model.GuidePage;
+import com.app.hubert.guide.model.RelativeGuide;
 import com.jason.module_movie.R;
 import com.jason.module_movie.mvp.contract.IndexContract;
 import com.jason.module_movie.mvp.model.bean.MovieBean;
@@ -35,6 +41,8 @@ import com.youth.banner.listener.OnBannerListener;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import immortalz.me.library.TransitionsHeleper;
 
 /**
  * Created by jason on 2018/11/14.
@@ -71,6 +79,8 @@ public class MoviesFragment extends BaseFragment<IndexPresenter> implements Inde
     }
 
 
+
+
     @Override
     public void requestData() {
         presenter.requestBanner("上海");
@@ -80,7 +90,8 @@ public class MoviesFragment extends BaseFragment<IndexPresenter> implements Inde
 
     @Override
     public void getBanner(final List<MovieBean.Movie> banner) {
-        BannerAdapter adapter = new BannerAdapter(activity, new SingleLayoutHelper(), banner);
+        Logger.e("Banner:"+banner.size());
+        BannerAdapter adapter = new BannerAdapter(activity, new SingleLayoutHelper(), banner,this);
         adapters.addAdapter(adapter);
         adapter.setOnBannerListener(new OnBannerListener() {
             @Override
@@ -114,7 +125,9 @@ public class MoviesFragment extends BaseFragment<IndexPresenter> implements Inde
             public void onClick(View v, int position, MovieBean.Movie data) {
                 Bundle bundle = new Bundle();
                 bundle.putString("id", data.getId());
-                openActivityByParams(MovieDetailsActivity.class, bundle);
+                Intent intent = new Intent(activity,MovieDetailsActivity.class);
+                intent.putExtras(bundle);
+                TransitionsHeleper.startActivity(activity,intent,v,data.getImages().getMedium());
             }
         });
         SingleLayoutHelper layoutHelper = new SingleLayoutHelper();
@@ -134,10 +147,13 @@ public class MoviesFragment extends BaseFragment<IndexPresenter> implements Inde
             public void onClick(View v, int position, MovieBean.Movie data) {
                 Bundle bundle = new Bundle();
                 bundle.putString("id", data.getId());
-                openActivityByParams(MovieDetailsActivity.class, bundle);
+                Intent intent = new Intent(activity,MovieDetailsActivity.class);
+                intent.putExtras(bundle);
+                TransitionsHeleper.startActivity(activity,intent,v,data.getImages().getMedium());
+
             }
         });
-        //adapters.addAdapter(new FloatAdapter(activity,new FloatLayoutHelper()));
+       // adapters.addAdapter(new FloatAdapter(activity,new FloatLayoutHelper()));
     }
 
 

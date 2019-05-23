@@ -59,7 +59,7 @@ public class HotMovieContainerAdapter extends DelegateAdapter.Adapter<HotMovieCo
         adapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
-                if (listener!=null) listener.onClick(view,position,data.get(position));
+                if (listener!=null) listener.onClick(view.findViewById(R.id.img_movie_banner),position,data.get(position));
             }
         });
     }

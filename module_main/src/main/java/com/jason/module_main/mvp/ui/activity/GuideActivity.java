@@ -18,7 +18,9 @@ import com.jason.tools.base.BaseActivity;
 import com.jason.tools.base.BaseFragment;
 import com.jason.tools.base.BasePresenter;
 import com.jason.tools.config.RouterConfig;
+import com.jason.tools.config.SharedKey;
 import com.jason.tools.utils.PermissionUtil;
+import com.jason.tools.utils.SharedUtil;
 import com.orhanobut.logger.Logger;
 
 import java.io.File;
@@ -133,6 +135,7 @@ public class GuideActivity extends BaseActivity implements View.OnClickListener{
     @Override
     public void onClick(View v) {
         if (v.getId()==R.id.btn_login){
+            SharedUtil.getInstance().put(SharedKey.IS_FIRST_LOGIN,false);
 //            String packageName = "com.jason.plugin";
 //            if (PluginManager.getInstance(this).getLoadedPlugin(packageName)==null){
 //                openActivityByNoParams(MainActivity.class);
@@ -144,7 +147,7 @@ public class GuideActivity extends BaseActivity implements View.OnClickListener{
 //            }
             //openActivityByNoParams(PluginActivity.class);
             openActivityByNoParams(MainActivity.class);
-
+            finish();
         }
     }
 }

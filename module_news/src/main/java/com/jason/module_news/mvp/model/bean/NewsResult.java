@@ -1,4 +1,4 @@
-package com.jason.tools.http.bean;
+package com.jason.module_news.mvp.model.bean;
 
 import java.util.List;
 

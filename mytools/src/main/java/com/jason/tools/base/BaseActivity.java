@@ -13,7 +13,7 @@ import android.widget.TextView;
 
 import com.gyf.barlibrary.ImmersionBar;
 import com.jason.tools.R;
-import com.jason.tools.utils.ActivityStackUtil;
+import com.jason.tools.utils.ActivityStack;
 import com.jason.tools.widgets.LoadingDialog;
 import com.noober.background.BackgroundLibrary;
 
@@ -38,7 +38,7 @@ public abstract class BaseActivity<T extends BasePresenter> extends AppCompatAct
         setContentView(getLayoutId());
         initViews();
         requestData();
-        ActivityStackUtil.getInstance().addActivity(this);
+        ActivityStack.getInstance().addActivity(this);
     }
 
 
@@ -138,7 +138,7 @@ public abstract class BaseActivity<T extends BasePresenter> extends AppCompatAct
     @Override
     protected void onDestroy() {
         if (presenter!=null)presenter.detachView();
-        ActivityStackUtil.getInstance().removeActivity(this);
+        ActivityStack.getInstance().removeActivity(this);
         ImmersionBar.with(this).destroy();
         super.onDestroy();
 

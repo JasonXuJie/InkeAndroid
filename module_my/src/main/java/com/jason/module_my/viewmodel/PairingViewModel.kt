@@ -6,7 +6,6 @@ import android.arch.lifecycle.MutableLiveData
 import com.jason.module_my.model.bean.PairingBean
 import com.jason.module_my.model.callback.OnRequestCallBack
 import com.jason.module_my.model.repository.PairingRepository
-import com.jason.tools.http.bean.HistoryContent
 
 /**
  * Created by jason on 2018/12/26.

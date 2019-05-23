@@ -8,14 +8,14 @@ if(isModule.toBoolean()){
     apply plugin: 'kotlin-android-extensions'
 }
 android {
-    compileSdkVersion rootProject.ext.androidCompileSdkVersion
+    compileSdkVersion rootProject.ext.compileSdkVersion
     defaultConfig {
-        minSdkVersion rootProject.ext.androidMinSdkVersion
-        targetSdkVersion rootProject.ext.androidTargetSdkVersion
-        versionCode 1
-        versionName "1.0"
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode rootProject.ext.versionCode
+        versionName rootProject.ext.versionName
 
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner rootProject.ext.testInstrumentationRunner
         //ARouter配置
         javaCompileOptions {
             annotationProcessorOptions {

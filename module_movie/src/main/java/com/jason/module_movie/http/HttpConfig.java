@@ -6,8 +6,8 @@ package com.jason.module_movie.http;
 
 public class HttpConfig {
 
-    public static final String DOUBAN_BANNER_URL = "https://api.douban.com/v2/movie/in_theaters";
-    public static final String DOUBAN_DETAILS_URL = "https://api.douban.com/v2/movie/subject/";
+    public static final String DOUBAN_BANNER_URL = "https://douban.uieee.com/v2/movie/in_theaters";
+    public static final String DOUBAN_DETAILS_URL = "https://douban.uieee.com/v2/movie/subject/";
 
 
 }

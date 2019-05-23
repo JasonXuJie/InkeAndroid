@@ -5,10 +5,9 @@ import android.arch.lifecycle.AndroidViewModel;
 import android.arch.lifecycle.MutableLiveData;
 import android.support.annotation.NonNull;
 
+import com.jason.module_my.model.bean.HistoryContent;
 import com.jason.module_my.model.callback.OnRequestCallBack;
 import com.jason.module_my.model.repository.HistoryRepository;
-import com.jason.tools.http.bean.HistoryContent;
-import com.orhanobut.logger.Logger;
 
 import java.util.List;
 

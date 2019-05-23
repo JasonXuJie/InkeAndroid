@@ -9,20 +9,23 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 
-public class ActivityStackUtil {
+/**
+ * Activity堆栈管理
+ * **/
+public class ActivityStack {
 
     private static Stack<Activity> activityStack;
     private static List<Fragment> fragmentList;
 
-    public static ActivityStackUtil getInstance(){
+    public static ActivityStack getInstance(){
         return ActivityHolder.sInstance;
     }
 
     private static class ActivityHolder{
-        private static final ActivityStackUtil sInstance = new ActivityStackUtil();
+        private static final ActivityStack sInstance = new ActivityStack();
     }
 
-    private ActivityStackUtil(){
+    private ActivityStack(){
 
     }
 

@@ -5,4 +5,11 @@
     <string name="tab_event">活动</string>
     <string name="tab_news">资讯</string>
     <string name="tab_my">我的</string>
+
+    <string name="shortcut_search_short">搜索</string>
+    <string name="shortcut_search_long">长搜索</string>
+    <string name="shortcut_search_disable">搜索不能点击</string>
+    <string name="shortcut_today_short">历史上的今天</string>
+    <string name="shortcut_today_long">长历史上的今天</string>
+    <string name="shortcut_today_disable">历史上的今天不能点击</string>
 </resources>

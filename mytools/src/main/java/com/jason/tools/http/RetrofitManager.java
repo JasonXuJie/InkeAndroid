@@ -19,8 +19,8 @@ public class RetrofitManager {
 
 
     private Retrofit retrofit;
-    private final long second = 60;
-    private static String baseUrl="http://v.juhe.cn/";
+    private final long SECOND = 60;
+    private final String BASE_URL="http://v.juhe.cn/";
 
 
     public static RetrofitManager getInstance(){
@@ -41,12 +41,12 @@ public class RetrofitManager {
             builder.addInterceptor(interceptor);
         }
         builder.retryOnConnectionFailure(true);
-        builder.connectTimeout(second, TimeUnit.SECONDS);
-        builder.writeTimeout(second,TimeUnit.SECONDS);
-        builder.readTimeout(second,TimeUnit.SECONDS);
+        builder.connectTimeout(SECOND, TimeUnit.SECONDS);
+        builder.writeTimeout(SECOND,TimeUnit.SECONDS);
+        builder.readTimeout(SECOND,TimeUnit.SECONDS);
         OkHttpClient client = builder.build();
         retrofit = new Retrofit.Builder()
-                .baseUrl(baseUrl)
+                .baseUrl(BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .client(client)
@@ -57,11 +57,6 @@ public class RetrofitManager {
     public Retrofit getRetrofit(){
         return retrofit;
     }
-
-    public ApiService getApi(){
-        return retrofit.create(ApiService.class);
-    }
-
 
 
 
