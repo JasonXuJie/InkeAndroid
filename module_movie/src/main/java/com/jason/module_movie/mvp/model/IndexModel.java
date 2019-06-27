@@ -27,12 +27,11 @@ public class IndexModel {
                 .subscribe(new Observer<MovieBean>() {
                     @Override
                     public void onSubscribe(Disposable d) {
-                        Logger.e("onSubscribe");
+
                     }
 
                     @Override
                     public void onNext(MovieBean movieBean) {
-                        Logger.e("onNext");
                         if (callBack!=null) callBack.getBanner(movieBean.getSubjects());
                     }
 

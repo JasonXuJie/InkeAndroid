@@ -5,7 +5,7 @@ import android.arch.lifecycle.AndroidViewModel;
 import android.arch.lifecycle.MutableLiveData;
 import android.support.annotation.NonNull;
 
-import com.jason.module_my.model.bean.DetailsBean;
+import com.jason.module_my.model.bean.DetailsResult;
 import com.jason.module_my.model.callback.OnRequestCallBack;
 import com.jason.module_my.model.repository.DetailsRepository;
 
@@ -18,7 +18,7 @@ import java.util.List;
 public class DetailsViewModel extends AndroidViewModel {
 
     private DetailsRepository repository;
-    private MutableLiveData<List<DetailsBean>> data;
+    private MutableLiveData<List<DetailsResult>> data;
 
     public DetailsViewModel(@NonNull Application application) {
         super(application);
@@ -30,9 +30,9 @@ public class DetailsViewModel extends AndroidViewModel {
 
     public void requestDetails(String id){
         data.setValue(null);
-        repository.requestDetails(id, new OnRequestCallBack<List<DetailsBean>>() {
+        repository.requestDetails(id, new OnRequestCallBack<List<DetailsResult>>() {
             @Override
-            public void getDataSuccess(List<DetailsBean> list) {
+            public void getDataSuccess(List<DetailsResult> list) {
                 data.setValue(list);
             }
 
@@ -45,7 +45,7 @@ public class DetailsViewModel extends AndroidViewModel {
 
 
 
-    public MutableLiveData<List<DetailsBean>> getData(){
+    public MutableLiveData<List<DetailsResult>> getData(){
         return data;
     }
 

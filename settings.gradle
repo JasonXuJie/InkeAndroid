@@ -1,7 +1,8 @@
-include ':app', ':mytools', ':module_movie', ':module_event', ':module_news', ':module_my', ':module_main', ':module_plugin', ':module_flutter'
+include ':app', ':mytools', ':module_movie', ':module_event', ':module_news', ':module_my', ':module_main', ':module_flutter'
+//':module_plugin',
 setBinding(new Binding([gradle: this]))
 evaluate(new File(
         settingsDir.parentFile,
-        'flutter_module/.android/include_flutter.groovy'
+        'MyApp/module_flutter/.android/include_flutter.groovy'
 ))
 

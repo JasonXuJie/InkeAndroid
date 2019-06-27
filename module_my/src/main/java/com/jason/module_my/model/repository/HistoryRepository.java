@@ -1,6 +1,5 @@
 package com.jason.module_my.model.repository;
 
-import com.jason.module_my.config.Config;
 import com.jason.module_my.http.ApiService;
 import com.jason.module_my.model.bean.HistoryContent;
 import com.jason.module_my.model.callback.OnRequestCallBack;
@@ -20,7 +19,6 @@ public class HistoryRepository {
 
 
 
-
     public void requestData(final OnRequestCallBack<List<HistoryContent>> callBack){
         Calendar calendar = Calendar.getInstance();
         int month = calendar.get(Calendar.MONTH);
@@ -29,7 +27,7 @@ public class HistoryRepository {
         RetrofitManager.getInstance()
                 .getRetrofit()
                 .create(ApiService.class)
-                .getHistoryList(Config.HISTORY_KEY,date)
+                .getHistoryList(ApiService.HISTORY_KEY,date)
                 .compose(RxSchedulers.<JuheBaseResult<List<HistoryContent>>>compose())
                 .subscribe(new BaseObserver<List<HistoryContent>>() {
                     @Override

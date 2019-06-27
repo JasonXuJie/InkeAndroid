@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/toolBar"
+        layout="@layout/view_middle_toolbar" />
+
+    <LinearLayout
+        android:id="@+id/setting_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="20dp"
+        android:showDividers="beginning|middle|end"
+        android:divider="@drawable/shape_divider_setting_func"/>
+
+    <Button
+        android:id="@+id/btn_logout"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/logout"
+        android:textColor="@android:color/white"
+        android:background="@drawable/shape_btn_logout"/>
+
+</LinearLayout>

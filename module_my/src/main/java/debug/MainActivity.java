@@ -5,7 +5,7 @@ package debug;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import com.jason.module_my.R;
-import com.jason.module_my.mvp.ui.fragment.MyFragment;
+import com.jason.module_my.ui.fragment.BackFragment;
 import com.jason.tools.base.BaseActivity;
 import com.jason.tools.base.BasePresenter;
 
@@ -30,7 +30,7 @@ public class MainActivity extends BaseActivity {
     public void initViews() {
         FragmentManager manager = getSupportFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
-        transaction.add(R.id.fl_container,new MyFragment());
+        transaction.add(R.id.fl_container,new BackFragment());
         transaction.commit();
 
     }

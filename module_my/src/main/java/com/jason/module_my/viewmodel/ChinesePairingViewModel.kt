@@ -6,6 +6,7 @@ import android.arch.lifecycle.MutableLiveData
 import com.jason.module_my.model.bean.ChinesePairingBean
 import com.jason.module_my.model.callback.OnRequestCallBack
 import com.jason.module_my.model.repository.ChinesePairingRepository
+import com.jason.tools.http.bean.JuheBaseResult
 
 /**
  * Created by jason on 2018/12/26.
@@ -24,14 +25,14 @@ class ChinesePairingViewModel(app: Application) : AndroidViewModel(app) {
 
     public fun requestData(shengxiao1: String, shengxiao2: String) {
         data.value = null
-        model.requestPairing(shengxiao1, shengxiao2, object : OnRequestCallBack<ChinesePairingBean> {
+        model.requestPairing(shengxiao1, shengxiao2, object : OnRequestCallBack<JuheBaseResult<ChinesePairingBean>> {
 
             override fun getDataFailed(msg: String?) {
 
             }
 
-            override fun getDataSuccess(bean: ChinesePairingBean?) {
-                data.value = bean
+            override fun getDataSuccess(bean: JuheBaseResult<ChinesePairingBean>?) {
+                data.value = bean!!.result
             }
 
         })

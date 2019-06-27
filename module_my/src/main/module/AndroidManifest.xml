@@ -19,17 +19,16 @@
         </activity>
 
         <activity
-            android:name=".mvp.ui.activity.TodayInHistoryActivity"
+            android:name=".ui.activity.TodayInHistoryActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".mvp.ui.activity.HistoryDetailsActivity"
+            android:name=".ui.activity.HistoryDetailsActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".mvp.ui.activity.LuckActivity"
+            android:name=".ui.activity.PairingActivity"
             android:screenOrientation="portrait" />
-        <activity
-            android:name=".mvp.ui.activity.PairingActivity"
-            android:screenOrientation="portrait" />
+        <activity android:name=".ui.activity.SettingActivity"
+            android:screenOrientation="portrait"/>
     </application>
 
 

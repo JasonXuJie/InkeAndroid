@@ -8,7 +8,9 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <include layout="@layout/view_middle_toolbar" />
+        <include
+            android:id="@+id/toolBar"
+            layout="@layout/view_middle_toolbar" />
 
         <ImageView
             android:id="@+id/img_pic"

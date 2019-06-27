@@ -5,4 +5,5 @@
     <string name="chinese_zodiac_matching">生肖配对</string>
     <string name="my_title">我的</string>
     <string name="title_history">历史上的今天</string>
+    <string name="logout">登出</string>
 </resources>

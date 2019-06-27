@@ -17,6 +17,7 @@ public class FragmentAdapter extends FragmentStatePagerAdapter {
     public FragmentAdapter(FragmentManager fm,List<BaseFragment> list) {
         super(fm);
         fragments = list;
+
     }
 
     @Override

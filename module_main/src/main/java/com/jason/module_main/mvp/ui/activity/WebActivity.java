@@ -15,6 +15,7 @@ import com.jason.tools.config.RouterConfig;
 import com.jason.tools.utils.StringUtil;
 import com.just.agentweb.AgentWeb;
 import com.just.agentweb.AgentWebConfig;
+import com.orhanobut.logger.Logger;
 
 /**
  * Created by jason on 2018/11/21.
@@ -41,6 +42,7 @@ public class WebActivity extends BaseActivity {
     public void initViews() {
         toolBar = findViewById(R.id.toolBar);
         String url = getIntent().getStringExtra("url");
+        Logger.e(url);
         layout_web_container = findViewById(R.id.layout_web_container);
         mAgentWeb = AgentWeb.with(this)
                 .setAgentWebParent(layout_web_container,new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT,FrameLayout.LayoutParams.MATCH_PARENT))

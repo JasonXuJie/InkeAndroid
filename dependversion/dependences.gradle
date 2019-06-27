@@ -37,6 +37,7 @@ ext {
     //Paging对RxJava2的原生支持
     def PAGING_RX_VERSION = "1.0.0-rc1"
     def GUIDE_VERSION = "v2.4.0"
+    def multiDexVs = "1.0.3"
 
     //官方库
     androidWidgets = [
@@ -50,7 +51,8 @@ ext {
             navFragment: "android.arch.navigation:navigation-fragment:${NAVIGATION_VERSION}",
             navUi      : "android.arch.navigation:navigation-ui:${NAVIGATION_VERSION}",
             paging     : "android.arch.paging:runtime:${PAGING_VERSION}",
-            pagingRx   : "android.arch.paging:rxjava2:${PAGING_RX_VERSION}"
+            pagingRx   : "android.arch.paging:rxjava2:${PAGING_RX_VERSION}",
+            multidex   : "com.android.support:multidex:${multiDexVs}"
 
     ]
 

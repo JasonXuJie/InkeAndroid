@@ -36,6 +36,8 @@ import com.jason.module_movie.mvp.ui.adapter.MyAdapter;
 import com.jason.module_movie.mvp.ui.callback.OnItemClickListener;
 import com.jason.tools.base.BaseFragment;
 import com.jason.tools.config.RouterConfig;
+import com.jason.tools.flutter.PageRouter;
+import com.jason.tools.utils.StringUtil;
 import com.orhanobut.logger.Logger;
 import com.youth.banner.listener.OnBannerListener;
 
@@ -90,7 +92,6 @@ public class MoviesFragment extends BaseFragment<IndexPresenter> implements Inde
 
     @Override
     public void getBanner(final List<MovieBean.Movie> banner) {
-        Logger.e("Banner:"+banner.size());
         BannerAdapter adapter = new BannerAdapter(activity, new SingleLayoutHelper(), banner,this);
         adapters.addAdapter(adapter);
         adapter.setOnBannerListener(new OnBannerListener() {
@@ -123,11 +124,14 @@ public class MoviesFragment extends BaseFragment<IndexPresenter> implements Inde
         adapter.setOnItemClickListener(new OnItemClickListener<MovieBean.Movie>() {
             @Override
             public void onClick(View v, int position, MovieBean.Movie data) {
-                Bundle bundle = new Bundle();
-                bundle.putString("id", data.getId());
-                Intent intent = new Intent(activity,MovieDetailsActivity.class);
-                intent.putExtras(bundle);
-                TransitionsHeleper.startActivity(activity,intent,v,data.getImages().getMedium());
+//                Bundle bundle = new Bundle();
+//                bundle.putString("id", data.getId());
+//                Intent intent = new Intent(activity,MovieDetailsActivity.class);
+//                intent.putExtras(bundle);
+//                TransitionsHeleper.startActivity(activity,intent,v,data.getImages().getMedium());
+                  PageRouter.openPageByUrl(activity,
+                          StringUtil.builder(PageRouter.FLUTTER_MOVIE_DETAILS_URL,
+                                  "?id=",data.getId(),"&title=",data.getTitle(),"&image=",data.getImages().getMedium()));
             }
         });
         SingleLayoutHelper layoutHelper = new SingleLayoutHelper();

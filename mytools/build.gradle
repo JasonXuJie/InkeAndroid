@@ -9,7 +9,11 @@ android {
         versionCode rootProject.ext.versionCode
         versionName rootProject.ext.versionName
 
-
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [AROUTER_MODULE_NAME: project.getName()]
+            }
+        }
 
     }
 
@@ -65,6 +69,13 @@ dependencies {
     annotationProcessor depends.glideAnno
     api depends.transitionHelper
     api depends.guide
+    api (depends.aRouter){
+        exclude module:"support-v4"
+    }
+    annotationProcessor depends.aRouterAnnotation
+
+    api project(':flutter')
+    api project(':flutter_boost')
 
 
 

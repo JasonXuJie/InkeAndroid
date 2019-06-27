@@ -17,7 +17,7 @@ android {
         versionCode rootProject.ext.versionCode
         versionName rootProject.ext.versionName
         testInstrumentationRunner rootProject.ext.testInstrumentationRunner
-
+        multiDexEnabled true
     }
 
     compileOptions {
@@ -54,8 +54,12 @@ dependencies {
         implementation project(':module_event')
         implementation project(':module_news')
         implementation project(':module_my')
-        implementation project(':module_flutter')
+        //implementation project(':flutter')
+        //implementation project(':flutter_boost')
     }
     def depends = rootProject.ext.tools
+    def android = rootProject.ext.androidWidgets
     implementation depends.virtualapk
+    implementation android.multidex
+
 }

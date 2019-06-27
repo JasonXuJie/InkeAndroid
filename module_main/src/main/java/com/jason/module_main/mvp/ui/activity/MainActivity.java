@@ -2,6 +2,7 @@ package com.jason.module_main.mvp.ui.activity;
 
 import android.widget.RadioGroup;
 
+import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.gyf.barlibrary.ImmersionBar;
 import com.jason.module_main.R;
@@ -15,6 +16,8 @@ import com.jason.tools.base.BasePresenter;
 import com.jason.tools.config.RouterConfig;
 import com.orhanobut.logger.Logger;
 
+import java.io.IOException;
+import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -28,10 +31,10 @@ import androidx.work.WorkManager;
 /**
  * Created by jason on 2018/11/14.
  */
-
+@Route(path = RouterConfig.MAIN_PATH)
 public class MainActivity extends BaseActivity {
 
-
+    public static WeakReference<MainActivity> sRef;
     private NoScrollViewPager vp_main;
     private RadioGroup bottom_bar;
     private List<BaseFragment> list = new ArrayList<>();
@@ -46,6 +49,7 @@ public class MainActivity extends BaseActivity {
     public int getLayoutId() {
         return R.layout.activity_main;
     }
+
 
     @Override
     public void initViews() {
@@ -69,9 +73,15 @@ public class MainActivity extends BaseActivity {
     @Override
     public void requestData() {
        // executeWork();
+        sRef = new WeakReference<>(this);
     }
 
-
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        sRef.clear();
+        sRef = null;
+    }
 
     /**
      * Workmanager轮询

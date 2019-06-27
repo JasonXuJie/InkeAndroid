@@ -1,12 +1,19 @@
 if(isModule.toBoolean()){
     apply plugin: 'com.android.application'
-    apply plugin: 'kotlin-android'
-    apply plugin: 'kotlin-android-extensions'
 }else{
     apply plugin: 'com.android.library'
-    apply plugin: 'kotlin-android'
-    apply plugin: 'kotlin-android-extensions'
 }
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+//kotlin ARouter配置
+kapt {
+    arguments {
+        arg("AROUTER_MODULE_NAME", project.getName())
+    }
+    //generateStubs = true
+}
+
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
     defaultConfig {
@@ -16,12 +23,17 @@ android {
         versionName rootProject.ext.versionName
 
         testInstrumentationRunner rootProject.ext.testInstrumentationRunner
-        //ARouter配置
-        javaCompileOptions {
-            annotationProcessorOptions {
-                arguments = [AROUTER_MODULE_NAME: project.getName()]
-            }
+
+        compileOptions {
+            sourceCompatibility JavaVersion.VERSION_1_8
+            targetCompatibility JavaVersion.VERSION_1_8
         }
+        //ARouter配置
+//        javaCompileOptions {
+//            annotationProcessorOptions {
+//                arguments = [AROUTER_MODULE_NAME: project.getName()]
+//            }
+//        }
     }
 
     buildTypes {
@@ -56,9 +68,11 @@ dependencies {
     api (depends.aRouter){
         exclude module:"support-v4"
     }
-    annotationProcessor depends.aRouterAnnotation
+    //annotationProcessor depends.aRouterAnnotation
+    kapt depends.aRouterAnnotation
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation depends.pickerView
+    implementation project(':flutter')
 }
 
 

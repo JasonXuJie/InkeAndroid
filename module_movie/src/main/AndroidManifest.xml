@@ -7,7 +7,8 @@
         <activity
             android:name="com.jason.module_movie.mvp.ui.activity.MovieDetailsActivity"
             android:screenOrientation="portrait" />
-
+        <activity android:name=".mvp.ui.activity.DetailsActivity"
+            android:screenOrientation="portrait"/>
     </application>
 
 
